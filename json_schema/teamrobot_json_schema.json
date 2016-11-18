@@ -1,0 +1,203 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "structure": {
+      "type": "object",
+      "properties": {
+        "prepositional_phrases_count": {
+          "type": "integer"
+        },
+        "adjective_count": {
+          "type": "integer"
+        },
+        "non_future": {
+          "type": "integer"
+        },
+        "active_sentences": {
+          "type": "integer"
+        },
+        "personal_pronouns": {
+          "type": "integer"
+        },
+        "word_length": {
+          "type": "number"
+        },
+        "negations": {
+          "type": "integer"
+        },
+        "adverbs": {
+          "type": "integer"
+        },
+        "passive_sentences": {
+          "type": "integer"
+        },
+        "number_of_sentences": {
+          "type": "integer"
+        },
+        "future": {
+          "type": "integer"
+        },
+        "wordcount": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "prepositional_phrases_count",
+        "adjective_count",
+        "non_future",
+        "active_sentences",
+        "personal_pronouns",
+        "word_length",
+        "negations",
+        "adverbs",
+        "passive_sentences",
+        "number_of_sentences",
+        "future",
+        "wordcount"
+      ]
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "speaker": {
+          "type": "string"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "timestamp": {
+          "type": "string"
+        },
+        "input_text": {
+          "type": "string"
+        },
+        "people_present": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "script_id": {
+          "type": "string"
+        },
+        "location": {
+          "type": "object",
+          "properties": {
+            "geometry": {
+              "type": "object",
+              "properties": {
+                "coordinates": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "type": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "coordinates",
+                "type"
+              ]
+            },
+            "type": {
+              "type": "string"
+            },
+            "properties": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "name"
+              ]
+            }
+          },
+          "required": [
+            "geometry",
+            "type",
+            "properties"
+          ]
+        },
+        "scene_id": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "speaker",
+        "lang",
+        "timestamp",
+        "input_text",
+        "people_present",
+        "script_id",
+        "location",
+        "scene_id"
+      ]
+    },
+    "semantic": {
+      "type": "object",
+      "properties": {
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "organisations": {
+          "type": "array",
+          "items": {}
+        },
+        "people": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "places": {
+          "type": "array",
+          "items": {}
+        },
+        "topics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "keywords",
+        "organisations",
+        "people",
+        "places",
+        "topics"
+      ]
+    },
+    "emotions": {
+      "type": "object",
+      "properties": {
+        "detected_emotion": {
+          "type": "array",
+          "items": {}
+        },
+        "information_state": {
+          "type": "array",
+          "items": {}
+        }
+      },
+      "required": [
+        "detected_emotion",
+        "information_state"
+      ]
+    }
+  },
+  "required": [
+    "structure",
+    "metadata",
+    "semantic",
+    "emotions"
+  ]
+}
