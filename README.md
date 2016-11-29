@@ -2,4 +2,4 @@
 
 ##Semantic-, Emotional-, Structure Processor & Response Generator  
 
-######Demo built for the VPRO Robot project
+######A demo of a linguistic processor, built for the VPRO Robot project
