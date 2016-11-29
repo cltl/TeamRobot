@@ -1,7 +1,13 @@
-#Semantic, Emotional, Structural processor and Response Generator
+#SESaR
+
+##Semantic-, Emotional-, Structure Processor & Response Generator  
+
+######A demo of a linguistic processor, built for the VPRO Robot project
 
 
-- Entity URI mining
-- Entity categorization (via the DBpedia URI)
+- 1
+
+- 2
+
 
 
