@@ -1,4 +1,3 @@
-
 import spacy
 import json
 import sys
@@ -11,7 +10,7 @@ nlp = spacy.load('en')
 
 def select_metadata():
     global metadata
-    metadata = str(sys.argv[1])
+    metadata = str(sys.argv[1:])
     if "-f" in metadata:
         metadata = filename_widget.value
         print(metadata)
@@ -22,10 +21,10 @@ def select_metadata():
         return metadata    
 
 #FUNCTION A: creates a text input from an argument which has to be typed in the following form:
-#"Hello, this is a new sentence. And this is a newer one"
+#################  "Hello, this is a new sentence. And this is a newer one"
 def select_text_input():
     global text_for_pipeline
-    text_from_commandline = str(sys.argv[2])
+    text_from_commandline = str(sys.argv[2:])
     if "/" in text_from_commandline:
         text_for_pipeline = text_widget.value
         print(text_for_pipeline)
@@ -34,7 +33,6 @@ def select_text_input():
         text_cleaner = text_clean.replace("'","")
         text_for_pipeline = text_cleaner.replace("]","")
         return text_for_pipeline
-
 
 #FUNCTION B: loads a file of .json-format, in order to read the "text input"-value and to modify it. 
 def read_json_metadata():
@@ -69,6 +67,26 @@ def semantic_processing():
             robot_metadata.write(json.dumps(received_data))
             robot_metadata.truncate()
 
+def create_dict_of_words():
+    global dict_of_words
+    dict_of_words = {}
+    for word in doc:
+        dict_of_words[word.string] = word.tag_
+    print(dict_of_words)
+
+def create_dict_of_content_words():
+    global dict_of_content_words
+    dict_of_content_words = {}
+    for word in doc:
+        if 'NN' in word.tag_:
+            dict_of_content_words[word.string] = word.tag_
+        if 'VB' in word.tag_:
+            dict_of_content_words[word.string] = word.tag_
+        if 'JJ' in word.tag_:
+            dict_of_content_words[word.string] = word.tag_
+        if 'RB' in word.tag_:
+            dict_of_content_words[word.string] = word.tag_
+
 #PROCESSING SEQUENCE 1: Execute all defined the functions
 #Process the text with the SpaCy Pipeline 
 select_metadata()
@@ -79,49 +97,6 @@ with open(metadata, 'r+') as robot_metadata:
     global doc
     doc = nlp(text_for_spacy)
     semantic_processing()
-
-
-
-#INPUT: sample_input.json
-#def demos_file():
-#    global filename_widget
-#   filename_widget = widgets.Text()
-#   display(filename_widget)
-#    def handle_submit(sender):
-#        print(filename_widget.value)        
-#    filename_widget.on_submit(handle_submit)
-#demos_file()
-
-#INPUT: We are looking for Richard Franzen, an American who has built a robot, he resides in Tagoyashi.
-#def demos_text():
-#    global text_widget
-#    text_widget = widgets.Text()
-#    display(text_widget)
-#    def handle_submit(sender):
-#        print(text_widget.value)        
-#    text_widget.on_submit(handle_submit)
-#demos_text()
-
-#def extract_
-#doc = nlp(text_for_spacy)
-#dict_of_content_words = {}
-#for word in doc:
-
-#EXTRACT ALL THE CONTENTWORDS AND ADD THEM TO THE JSON FILE
-#CREATE THE SAIF MOHAMMED LIBRARY IN JSON FOR EMOTIONS
-#DO AN EMOTION MAPPING OF THE WORDS
-
-#def emotion_processor():
-#'emotions': {'detected_emotion': [], 'information_state': []}}
-
-#AAN MARIEKE VRAGEN: WAT BEDOEL JE MET EMOTION STATE... Ze weet het zelf ook niet blijkbaar
-
-#def structure_processor()
-#BUILD A COUNTER FOR:
-#'future': 0, 'number_of_sentences': 1, 'passive_sentences': 0, 'non_future': 
-#2, 'adjective_count': 1, 'wordcount': 11, 'adverbs': 0, 'active_sentences': 
-#2, 'word_length': 6.09, 'personal_pronouns': 2, 'prepositional_phrases_count': 1, 'negations': 0
-
-
-
-
+    create_dict_of_words()
+    create_dict_of_content_words()
+    
