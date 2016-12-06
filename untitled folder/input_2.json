@@ -1,17 +1,17 @@
 {
   "structure": {
-    "prepositional_phrases_count": 0,
-    "adjective_count": 0,
-    "non_future": 0,
-    "active_sentences": 0,
-    "personal_pronouns": 0,
-    "word_length": 0,
+    "prepositional_phrases_count": 1,
+    "adjective_count": 1,
+    "non_future": 2,
+    "active_sentences": 2,
+    "personal_pronouns": 2,
+    "word_length": 6.09,
     "negations": 0,
     "adverbs": 0,
     "passive_sentences": 0,
-    "number_of_sentences": 0,
+    "number_of_sentences": 1,
     "future": 0,
-    "wordcount": 0
+    "wordcount": 11
   },
   "metadata": {
     "speaker": "Jelle",

@@ -1,23 +1,23 @@
 {
   "structure": {
-    "prepositional_phrases_count": 0,
-    "adjective_count": 0,
-    "non_future": 0,
-    "active_sentences": 0,
-    "personal_pronouns": 0,
-    "word_length": 0,
+    "prepositional_phrases_count": 1,
+    "adjective_count": 1,
+    "non_future": 2,
+    "active_sentences": 2,
+    "personal_pronouns": 2,
+    "word_length": 6.09,
     "negations": 0,
-    "adverbs": 0,
+    "adverbs": 1,
     "passive_sentences": 0,
-    "number_of_sentences": 0,
+    "number_of_sentences": 1,
     "future": 0,
-    "wordcount": 0
+    "wordcount": 11
   },
   "metadata": {
-    "speaker": "Jelle",
-    "lang": "nl",
+    "speaker": "Richard", 
+    "lang": "en",
     "timestamp": "2016-11-18T08:35:44.566050",
-    "input_text": "Goedendag, ik ben van de Nederlandse televisie. Mijn naam is Jelle.",
+    "input_text": "She was important to me. She died last year unfortunately",
     "people_present": [
       "Richard",
       "Jelle"
@@ -49,11 +49,11 @@
     ],
     "places": [],
     "topics": [
-      "introduction"
-    ]
+      "introduction","mother","death"
+  ]
   },
   "emotions": {
-    "detected_emotion": [],
+    "detected_emotion": ["Sad"],
     "information_state": []
   }
 }
