@@ -1,4 +1,5 @@
 import random
+import json
 
 def select_question_topic(semantic):
     # put org/people/places within another key in semantic so we can just loop over them
