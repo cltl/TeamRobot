@@ -1,0 +1,103 @@
+{
+    "emotions": {
+        "detected_emotion": [
+            "negative",
+            "anger",
+            "disgust",
+            "fear",
+            "fear",
+            "anger",
+            "disgust",
+            "negative"
+        ],
+        "information_state": []
+    },
+    "metadata": {
+        "input_text": "i am really very angry with the government not taking care of things. Especially  when  Barack Obama came to Paris last year. ",
+        "lang": "nl",
+        "location": {
+            "geometry": {
+                "coordinates": [
+                    35.41,
+                    139.41
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "name": "Tokyo, Japan"
+            },
+            "type": "Feature"
+        },
+        "people_present": [
+            "Richard",
+            "Jelle"
+        ],
+        "scene_id": "scene_1",
+        "script_id": "episode_1",
+        "speaker": "Jelle",
+        "timestamp": "2016-11-18T08:35:44.566050"
+    },
+    "semantic": {
+        "keywords": [
+            "televisie"
+        ],
+        "organisations": {},
+        "people": {
+            "ent5": {
+                "URI": "http://dbpedia.org/resource/Richard_III_of_England",
+                "confidence": "0.3897339517360291",
+                "name": "Richard",
+                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:Royalty,DBpedia:BritishRoyalty"
+            },
+            "ent62": {
+                "URI": "http://dbpedia.org/resource/Barack_Obama",
+                "confidence": "0.9997298833677177",
+                "name": "Barack Obama",
+                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
+            },
+            "ent95": {
+                "URI": "http://dbpedia.org/resource/Barack_Obama",
+                "confidence": "0.9904855738522956",
+                "name": "Obama",
+                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
+            }
+        },
+        "places": {
+            "ent1": {
+                "URI": "http://dbpedia.org/resource/Paris",
+                "confidence": "0.9997070843442306",
+                "name": "Paris",
+                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
+            },
+            "ent3": {
+                "URI": "http://dbpedia.org/resource/Paris",
+                "confidence": "0.9997070843442306",
+                "name": "Paris",
+                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
+            },
+            "ent45": {
+                "URI": "http://dbpedia.org/resource/Paris",
+                "confidence": "0.9997070843442306",
+                "name": "Paris",
+                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
+            }
+        },
+        "topics": [
+            "introduction"
+        ]
+    },
+    "structure": {
+        "active_sentences": 2,
+        "adjective_count": 10,
+        "adverbs": 30,
+        "future": 49,
+        "negations": 10,
+        "non_future": 1,
+        "number_of_sentences": 12,
+        "passive_sentences": 0,
+        "personal_pronouns": 12,
+        "prepositional_phrases_count": 22,
+        "word_length": 0,
+        "wordcount": 14
+    }
+}
