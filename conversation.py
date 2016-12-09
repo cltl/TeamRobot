@@ -25,7 +25,9 @@ def annotate(text):
 	entities = {} 
 	for i in doc: 
 		if len(i.ent_type_) > 0:
-			entities[i.text] = i.ent_type_  
+			entities[i.text] = i.ent_type_
+			outputstring = i.text + " " + i.ent_type_ 
+			os.system("say " + outputstring)  
 			print(i.text, i.ent_type_)
 
 def getcmd(cmdlist):
