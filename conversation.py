@@ -14,6 +14,9 @@ import sys
 import os
 import readability 
 
+# A small warning that it may take a while for the data to load 
+print('------------\nLoading the language model, this may take a while\n\n-------------\n')
+
 # Make sure the spacy module is loaded (this may take a while) 
 nlp = spacy.load('en') 
 
@@ -27,14 +30,10 @@ def annotate(text):
 
 def getcmd(cmdlist):
 	cmd = input('\nP3PP3R:> ')
-	if cmd == 'quit':
-		exit(1)
-	else:
-		annotate(cmd)
+	annotate(cmd)
 			
 def start():
 	print('\n-------')
-	print('Input text: ')
 	cmd = getcmd(input)
 	start()
 	
