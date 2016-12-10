@@ -10,7 +10,8 @@
 The simplest way to get the demo running at the moment is to first install the SpaCy python package (`pip install spacy` or however you install your packages). Then download the SpaCy language models:  (see also [https://spacy.io/docs/usage/](https://spacy.io/docs/usage/)
 
 Another option is to setup a virtualenv:
-```virtualenv .
+```
+virtualenv .
 source bin/activate
 pip install -r requirements.txt
 python -m spacy.en.download all
