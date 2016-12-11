@@ -192,14 +192,14 @@ def structural_processor():
         robot_metadata.seek(0)
         robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
         robot_metadata.truncate()
-    for dependancy in doc:
-        if dependancy.dep_ == 'neg':
+    for dependency in doc:
+        if dependency.dep_ == 'neg':
             received_data['structure']['negations'] += 1
-        if dependancy.dep_ == 'prep':
+        if dependency.dep_ == 'prep':
             received_data['structure']['prepositional_phrases_count'] += 1
-        if dependancy.dep_ == 'aux':
+        if dependency.dep_ == 'aux':
             received_data['structure']['active_sentences'] += 1
-        if dependancy.dep_ == 'auxpass':
+        if dependency.dep_ == 'auxpass':
             received_data['structure']['passive_sentences'] += 1
         robot_metadata.seek(0)
         robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
