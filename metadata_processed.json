@@ -1,0 +1,93 @@
+{
+    "emotions": {
+        "detected_emotion": [
+            "disgust",
+            "anger",
+            "surprise",
+            "negative",
+            "sadness",
+            "trust"
+        ],
+        "information_state": []
+    },
+    "metadata": {
+        "input_text": "I am really very angry at the fact that Hillary Clinton lost Michigan to Donald Trump thanks to the Electoral College",
+        "lang": "nl",
+        "location": {
+            "geometry": {
+                "coordinates": [
+                    35.41,
+                    139.41
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "name": "Tokyo, Japan"
+            },
+            "type": "Feature"
+        },
+        "people_present": [
+            "Richard",
+            "Jelle"
+        ],
+        "scene_id": "scene_1",
+        "script_id": "episode_1",
+        "speaker": "Jelle",
+        "timestamp": "2016-11-18T08:35:44.566050"
+    },
+    "process_state": "processed",
+    "response": "What are your thoughts on Michigan",
+    "semantic": {
+        "keywords": [
+            "televisie",
+            "goedendag"
+        ],
+        "organisations": {
+            "ent19": {
+                "URI": "http://dbpedia.org/resource/Electoral_College_(United_States)",
+                "confidence": "0.9957117417614112",
+                "name": "Electoral College",
+                "type": ""
+            }
+        },
+        "people": {
+            "ent43": {
+                "URI": "http://dbpedia.org/resource/Hillary_Rodham_Clinton",
+                "confidence": "0.9990240263489855",
+                "name": "Hillary Clinton",
+                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
+            },
+            "ent87": {
+                "URI": "http://dbpedia.org/resource/Donald_Trump",
+                "confidence": "0.9999360411207966",
+                "name": "Donald Trump",
+                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person"
+            }
+        },
+        "places": {
+            "ent88": {
+                "URI": "http://dbpedia.org/resource/Michigan",
+                "confidence": "0.9823507786936302",
+                "name": "Michigan",
+                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Region,Schema:AdministrativeArea,DBpedia:AdministrativeRegion"
+            }
+        },
+        "topics": [
+            "introduction"
+        ]
+    },
+    "structure": {
+        "active_sentences": 0,
+        "adjective_count": 1,
+        "adverbs": 2,
+        "future": 3,
+        "negations": 0,
+        "non_future": 1,
+        "number_of_sentences": 1,
+        "passive_sentences": 0,
+        "personal_pronouns": 1,
+        "prepositional_phrases_count": 3,
+        "word_length": 0,
+        "wordcount": 19
+    }
+}
