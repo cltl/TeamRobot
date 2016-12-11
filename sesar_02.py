@@ -212,8 +212,7 @@ def label_processed_metadatafile():
     unprocessed_end = ".json"
     if metadata.endswith(unprocessed_end):
         rename(metadata, metadata.replace(unprocessed_end, '_processed.json', 1))
-    print(metadata)
-
+        
 #ENTER THE NAME OF DEMO INPUT FILE: sample_input_v2.json or metadata.json
 #def demos_file():
 #    global filename_widget

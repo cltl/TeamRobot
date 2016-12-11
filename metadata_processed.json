@@ -1,12 +1,12 @@
 {
     "emotions": {
         "detected_emotion": [
-            "disgust",
             "anger",
             "surprise",
-            "negative",
             "sadness",
-            "trust"
+            "negative",
+            "trust",
+            "disgust"
         ],
         "information_state": []
     },
@@ -36,14 +36,14 @@
         "timestamp": "2016-11-18T08:35:44.566050"
     },
     "process_state": "processed",
-    "response": "What are your thoughts on Michigan",
+    "response": "Tell me more about Electoral College",
     "semantic": {
         "keywords": [
             "televisie",
             "goedendag"
         ],
         "organisations": {
-            "ent19": {
+            "ent77": {
                 "URI": "http://dbpedia.org/resource/Electoral_College_(United_States)",
                 "confidence": "0.9957117417614112",
                 "name": "Electoral College",
@@ -51,13 +51,13 @@
             }
         },
         "people": {
-            "ent43": {
+            "ent82": {
                 "URI": "http://dbpedia.org/resource/Hillary_Rodham_Clinton",
                 "confidence": "0.9990240263489855",
                 "name": "Hillary Clinton",
                 "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
             },
-            "ent87": {
+            "ent98": {
                 "URI": "http://dbpedia.org/resource/Donald_Trump",
                 "confidence": "0.9999360411207966",
                 "name": "Donald Trump",
@@ -65,7 +65,7 @@
             }
         },
         "places": {
-            "ent88": {
+            "ent27": {
                 "URI": "http://dbpedia.org/resource/Michigan",
                 "confidence": "0.9823507786936302",
                 "name": "Michigan",
