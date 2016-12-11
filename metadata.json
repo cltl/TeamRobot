@@ -1,65 +1,11 @@
 {
     "emotions": {
         "detected_emotion": [
-            "negative",
-            "anger",
-            "disgust",
-            "fear",
-            "positive",
-            "sadness",
-            "negative",
-            "anger",
-            "disgust",
-            "fear",
-            "positive",
-            "sadness",
-            "negative",
-            "anger",
-            "disgust",
-            "fear",
-            "positive",
-            "sadness",
-            "negative",
-            "anger",
-            "disgust",
-            "fear",
-            "positive",
-            "sadness",
-            "negative",
-            "anger",
-            "disgust",
-            "fear",
-            "positive",
-            "sadness",
-            "negative",
-            "anger",
-            "disgust",
-            "fear",
-            "positive",
-            "sadness",
-            "negative",
-            "anger",
-            "disgust",
-            "fear",
-            "positive",
-            "sadness",
-            "negative",
-            "anger",
-            "disgust",
-            "fear",
-            "positive",
-            "sadness",
-            "negative",
-            "anger",
-            "disgust",
-            "fear",
-            "positive",
-            "sadness"
         ],
         "information_state": []
     },
     "metadata": {
-        "input_text": "I am very mad and very very angry at the stupid painful losing Barack Obama in Washigngton DC when he was working with Microsoft in Paris.",
+        "input_text": "",
         "lang": "nl",
         "location": {
             "geometry": {
@@ -91,177 +37,27 @@
             "goedendag"
         ],
         "organisations": {
-            "ent100": {
-                "URI": "http://dbpedia.org/resource/Microsoft",
-                "confidence": "0.999927622863225",
-                "name": "Microsoft",
-                "type": "DBpedia:Agent,Schema:Organization,DBpedia:Organisation,DBpedia:Company"
-            },
-            "ent19": {
-                "URI": "http://dbpedia.org/resource/Microsoft",
-                "confidence": "0.999927622863225",
-                "name": "Microsoft",
-                "type": "DBpedia:Agent,Schema:Organization,DBpedia:Organisation,DBpedia:Company"
-            },
-            "ent24": {
-                "URI": "http://dbpedia.org/resource/Microsoft",
-                "confidence": "0.999927622863225",
-                "name": "Microsoft",
-                "type": "DBpedia:Agent,Schema:Organization,DBpedia:Organisation,DBpedia:Company"
-            },
-            "ent31": {
-                "URI": "http://dbpedia.org/resource/Microsoft",
-                "confidence": "0.999927622863225",
-                "name": "Microsoft",
-                "type": "DBpedia:Agent,Schema:Organization,DBpedia:Organisation,DBpedia:Company"
-            },
-            "ent39": {
-                "URI": "http://dbpedia.org/resource/Microsoft",
-                "confidence": "0.999927622863225",
-                "name": "Microsoft",
-                "type": "DBpedia:Agent,Schema:Organization,DBpedia:Organisation,DBpedia:Company"
-            },
-            "ent41": {
-                "URI": "http://dbpedia.org/resource/Microsoft",
-                "confidence": "0.999927622863225",
-                "name": "Microsoft",
-                "type": "DBpedia:Agent,Schema:Organization,DBpedia:Organisation,DBpedia:Company"
-            },
-            "ent61": {
-                "URI": "http://dbpedia.org/resource/Microsoft",
-                "confidence": "0.999927622863225",
-                "name": "Microsoft",
-                "type": "DBpedia:Agent,Schema:Organization,DBpedia:Organisation,DBpedia:Company"
-            },
-            "ent68": {
-                "URI": "http://dbpedia.org/resource/Microsoft",
-                "confidence": "0.999927622863225",
-                "name": "Microsoft",
-                "type": "DBpedia:Agent,Schema:Organization,DBpedia:Organisation,DBpedia:Company"
-            },
-            "ent90": {
-                "URI": "http://dbpedia.org/resource/Microsoft",
-                "confidence": "0.999927622863225",
-                "name": "Microsoft",
-                "type": "DBpedia:Agent,Schema:Organization,DBpedia:Organisation,DBpedia:Company"
-            }
         },
         "people": {
-            "ent13": {
-                "URI": "http://dbpedia.org/resource/Barack_Obama",
-                "confidence": "0.9997298833677177",
-                "name": "Barack Obama",
-                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
-            },
-            "ent27": {
-                "URI": "http://dbpedia.org/resource/Barack_Obama",
-                "confidence": "0.9997298833677177",
-                "name": "Barack Obama",
-                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
-            },
-            "ent28": {
-                "URI": "http://dbpedia.org/resource/Barack_Obama",
-                "confidence": "0.9997298833677177",
-                "name": "Barack Obama",
-                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
-            },
-            "ent30": {
-                "URI": "http://dbpedia.org/resource/Barack_Obama",
-                "confidence": "0.9997298833677177",
-                "name": "Barack Obama",
-                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
-            },
-            "ent40": {
-                "URI": "http://dbpedia.org/resource/Barack_Obama",
-                "confidence": "0.9997298833677177",
-                "name": "Barack Obama",
-                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
-            },
-            "ent69": {
-                "URI": "http://dbpedia.org/resource/Barack_Obama",
-                "confidence": "0.9997298833677177",
-                "name": "Barack Obama",
-                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
-            },
-            "ent85": {
-                "URI": "http://dbpedia.org/resource/Barack_Obama",
-                "confidence": "0.9997298833677177",
-                "name": "Barack Obama",
-                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
-            },
-            "ent94": {
-                "URI": "http://dbpedia.org/resource/Barack_Obama",
-                "confidence": "0.9997298833677177",
-                "name": "Barack Obama",
-                "type": "DBpedia:Agent,Schema:Person,Http://xmlns.com/foaf/0.1/Person,DBpedia:Person,DBpedia:OfficeHolder"
-            }
         },
         "places": {
-            "ent17": {
-                "URI": "http://dbpedia.org/resource/Paris",
-                "confidence": "0.9997070843442306",
-                "name": "Paris",
-                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
-            },
-            "ent27": {
-                "URI": "http://dbpedia.org/resource/Paris",
-                "confidence": "0.9997070843442306",
-                "name": "Paris",
-                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
-            },
-            "ent31": {
-                "URI": "http://dbpedia.org/resource/Paris",
-                "confidence": "0.9997070843442306",
-                "name": "Paris",
-                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
-            },
-            "ent36": {
-                "URI": "http://dbpedia.org/resource/Paris",
-                "confidence": "0.9997070843442306",
-                "name": "Paris",
-                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
-            },
-            "ent49": {
-                "URI": "http://dbpedia.org/resource/Paris",
-                "confidence": "0.9997070843442306",
-                "name": "Paris",
-                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
-            },
-            "ent54": {
-                "URI": "http://dbpedia.org/resource/Paris",
-                "confidence": "0.9997070843442306",
-                "name": "Paris",
-                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
-            },
-            "ent59": {
-                "URI": "http://dbpedia.org/resource/Paris",
-                "confidence": "0.9997070843442306",
-                "name": "Paris",
-                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
-            },
-            "ent90": {
-                "URI": "http://dbpedia.org/resource/Paris",
-                "confidence": "0.9997070843442306",
-                "name": "Paris",
-                "type": "Schema:Place,DBpedia:Place,DBpedia:PopulatedPlace,DBpedia:Settlement"
-            }
         },
         "topics": [
             "introduction"
         ]
     },
     "structure": {
-        "active_sentences": 9,
-        "adjective_count": 36,
-        "adverbs": 36,
-        "future": 63,
+        "active_sentences": 0,
+        "adjective_count": 0,
+        "adverbs": 0,
+        "future": 0,
         "negations": 0,
-        "non_future": 9,
-        "number_of_sentences": 9,
+        "non_future": 0,
+        "number_of_sentences": 0,
         "passive_sentences": 0,
-        "personal_pronouns": 18,
-        "prepositional_phrases_count": 36,
+        "personal_pronouns": 0,
+        "prepositional_phrases_count": 0,
         "word_length": 0,
-        "wordcount": 24
+        "wordcount": 0
     }
 }

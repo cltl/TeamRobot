@@ -1,9 +1,12 @@
-
-# coding: utf-8
-
-# In[1]:
+"""
+VPRO Robot-project
+Vrije Universiteit Amsterdam
+Computaional Lexicology and Terminology Lab, "Team Robot"
+11-12-2016, Amsterdam
+"""
 
 import os
+from os import rename, listdir
 import sys
 import json
 import spacy
@@ -25,7 +28,7 @@ nlp = spacy.load('en')
 
 def select_metadata():
     global metadata
-    metadata = str(sys.argv[1:])
+    metadata = str(sys.argv[1])
     if "-f" in metadata:
         metadata = filename_widget.value
     else:
@@ -205,6 +208,12 @@ def structural_processor():
         robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
         robot_metadata.truncate()
 
+def label_processed_metadatafile():
+    unprocessed_end = ".json"
+    if metadata.endswith(unprocessed_end):
+        rename(metadata, metadata.replace(unprocessed_end, '_processed.json', 1))
+    print(metadata)
+
 #ENTER THE NAME OF DEMO INPUT FILE: sample_input_v2.json or metadata.json
 #def demos_file():
 #    global filename_widget
@@ -248,16 +257,8 @@ with open(metadata, 'r+') as robot_metadata:
         robot_metadata.seek(0)
         robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
         robot_metadata.truncate()
+        label_processed_metadatafile()
 
-rmod.generate_response(received_data['semantic'])
-
-
-# In[ ]:
-
-
-
-
-# In[ ]:
-
+#rmod.generate_response(received_data['semantic'])
 
 
