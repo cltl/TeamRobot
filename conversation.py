@@ -26,7 +26,6 @@ print('------------\nLoading the language model, this may take a while\n\n------
 
 # Make sure the spacy module is loaded (this may take a while) 
 nlp = spacy.load('en') 
-received_data = {}
 
 def annotate(text):
 	doc = nlp(text)
@@ -56,18 +55,30 @@ def structure_processor(text):
 # This is where the text annotation takes place 
 # copied from Yassine's code 
 
-def read_json_metadata():
-    global robot_metadata
-    global text_for_spacy
-    global received_data
-    if 'input_text' not in received_data["metadata"]:
-        received_data["metadata"]["input_text"] = text_for_pipeline
-        text_for_spacy = received_data["metadata"]["input_text"]
-        robot_metadata.seek(0)
-        robot_metadata.write(json.dumps(received_data, sort_keys = True,  indent=4))
-        robot_metadata.truncate()
+def select_metadata():
+    global metadata
+    metadata = str(sys.argv[1])
+    if "-f" in metadata:
+        metadata = filename_widget.value
+    else:
+        filename_clean = metadata.replace("[","")
+        filename_cleaner = filename_clean.replace("'","")
+        metadata = filename_cleaner.replace("]","")
+        return metadata
 
-  
+#FUNCTION A: creates a text input from an argument which has to be typed in the following form:
+#################  "Hello, this is a new sentence. And this is a newer one"
+def select_text_input():
+    global text_for_pipeline
+    text_from_commandline = str(sys.argv[2:])
+    if "/" in text_from_commandline:
+        text_for_pipeline = text_widget.value
+    elif text_from_commandline:
+        text_clean = text_from_commandline.replace("[","")
+        text_cleaner = text_clean.replace("'","")
+        text_for_pipeline = text_cleaner.replace("]","")
+        return text_for_pipeline
+
 # Link entities to DBpedia 
 # To do: revert to local server         
 def link_to_dbpedia(doc):
@@ -111,10 +122,8 @@ def semantic_processing_with_dpbedia():
             received_data['semantic']['organisations'].update(interpreted_entity)
         if entity.label_ == 'PERSON':
             received_data['semantic']['people'].update(interpreted_entity)
-        robot_metadata.seek(0)
-        robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
-        robot_metadata.truncate()      
-
+        outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
+    
 # Also get the part of speech tags and make sure there is a structure for them 
 def create_dict_of_words_vs_postags():
     global dict_of_words
@@ -174,9 +183,7 @@ def emotions_extraction(target_emo_dict):
     emotions_score_dict_to_process = target_emo_dict  
     for emotion,value in emotions_score_dict_to_process.items():
         received_data['emotions']['detected_emotion'].append(emotion)
-        robot_metadata.seek(0)
-        robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
-        robot_metadata.truncate()
+        outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
     
 # Gather stats about the structure of the conversation 
 def structural_processor(): 
@@ -202,9 +209,7 @@ def structural_processor():
             received_data['structure']['future'] += 1
         if 'VBZ' in word.tag_:  
             received_data['structure']['future'] += 1
-        robot_metadata.seek(0)
-        robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
-        robot_metadata.truncate()
+        outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
     for dependency in doc:
         if dependency.dep_ == 'neg':
             received_data['structure']['negations'] += 1
@@ -214,33 +219,37 @@ def structural_processor():
             received_data['structure']['active_sentences'] += 1
         if dependency.dep_ == 'auxpass':
             received_data['structure']['passive_sentences'] += 1
-        robot_metadata.seek(0)
-        robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
-        robot_metadata.truncate()
+        outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
 
 #PROCESSING PIPELINE: Execute all defined functions and modules:
 def annotate_and_respond(text):
-    with open('metadata.json', 'r+') as robot_metadata:  
-        received_data = json.load(robot_metadata)
-        if received_data['process_state'] == '':
-            read_json_metadata()
-            global doc
-            doc = nlp(text_for_spacy)
-            semantic_processing_with_dpbedia()
-            create_dict_of_words_vs_postags()
-            create_dict_of_content_words() 
-            structural_processor()        
-            processed_emotion = emotion_processor(doc)
-            emotions_extraction(processed_emotion)
-            generated_response = rmod.generate_response(received_data['semantic'])
-            received_data['response'] = generated_response
-            print(generated_response)
-            received_data['process_state'] = 'processed'
-            robot_metadata.seek(0)
-            robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
-            robot_metadata.truncate()
-            rmod.generate_response(received_data['semantic'])
-    
+	global robot_metadata 
+	counter = str(randint(0,100))
+	global outputfile
+	#received_data['process_state'] = 'processed'
+	outputfile_name = 'processed_sentence_' + counter + '.json'  
+	outputfile = open(outputfile_name, 'w')
+	with open('metadata.json', 'r+') as robot_metadata:
+		global received_data 
+		received_data = json.load(robot_metadata)
+		print(received_data)
+		global doc 
+		doc = nlp(text)
+		semantic_processing_with_dpbedia()
+		create_dict_of_words_vs_postags()
+		create_dict_of_content_words() 
+		structural_processor()		  
+		processed_emotion = emotion_processor(doc)
+		emotions_extraction(processed_emotion)
+		generated_response = rmod.generate_response(received_data['semantic'])
+		received_data['response'] = generated_response
+		print(generated_response)
+		os.system("say " + generated_response)
+		outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
+		outputfile.close() 
+		rmod.generate_response(received_data['semantic'])
+		
+	
         
 # Run the whole thing 
 

@@ -31,15 +31,14 @@ def select_question(file):
     with open("questions/" + file) as json_file:
         json_data = json.load(json_file)
         question = random.choice(json_data['x'])['question']
-
     return question
 
 def generate_response(semantic):
-    question_topic = select_question_topic(semantic)
-    question_subject = random.choice(list(semantic[question_topic].values()))
-
-    question_file = select_question_file(question_topic)
-
-    question_text = select_question(question_file).replace('{x}', question_subject['name'])
-
+    try: 
+        question_topic = select_question_topic(semantic)
+        question_subject = random.choice(list(semantic[question_topic].values()))
+        question_file = select_question_file(question_topic)
+        question_text = select_question(question_file).replace('{x}', question_subject['name'])
+    except:
+        question_text = """Nice weather today, is it not?""" 
     return(question_text)
