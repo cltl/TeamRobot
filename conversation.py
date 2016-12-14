@@ -92,14 +92,20 @@ def link_to_dbpedia(doc):
     
 # Recognise enities 
 def extract_entity_values(entity):
-    dbp_resrc = entity['Resources']
-    for dbp_resrc_dict in dbp_resrc:
-        ent_name_in_dbp = dbp_resrc_dict['@surfaceForm']
-        ent_type_in_dbp = dbp_resrc_dict['@types']
-        ent_uri_in_dbp = dbp_resrc_dict['@URI']
-        ent_conf_in_dbp = dbp_resrc_dict['@similarityScore']
-        dbp_resrc_dict
-        return (ent_name_in_dbp, ent_type_in_dbp, ent_uri_in_dbp, ent_conf_in_dbp)
+	try:
+		dbp_resrc = entity['Resources']
+		for dbp_resrc_dict in dbp_resrc:
+			ent_name_in_dbp = dbp_resrc_dict['@surfaceForm']
+			ent_type_in_dbp = dbp_resrc_dict['@types']
+			ent_uri_in_dbp = dbp_resrc_dict['@URI']
+			ent_conf_in_dbp = dbp_resrc_dict['@similarityScore']
+			dbp_resrc_dict
+	except:
+		ent_name_in_dbp = ''
+		ent_type_in_dbp = ''
+		ent_uri_in_dbp = ''
+		ent_conf_in_dbp = ''
+	return (ent_name_in_dbp, ent_type_in_dbp, ent_uri_in_dbp, ent_conf_in_dbp)
 
 # Create a dictionary to organise the entity links  
 def create_entity_dict(selected_values):

@@ -34,11 +34,13 @@ def select_question(file):
     return question
 
 def generate_response(semantic):
+    question_text = """Hmm, I did not quite get that"""
     try: 
         question_topic = select_question_topic(semantic)
         question_subject = random.choice(list(semantic[question_topic].values()))
         question_file = select_question_file(question_topic)
         question_text = select_question(question_file).replace('{x}', question_subject['name'])
+        question_text = question_text + '?'
     except:
         question_text = """Nice weather today, is it not?""" 
     return(question_text)
