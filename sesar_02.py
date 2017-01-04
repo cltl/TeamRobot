@@ -14,9 +14,9 @@ import pprint
 import IPython
 import spotlight
 import subprocess
-import readability 
-import urllib.parse 
-import urllib.request  
+import readability
+import urllib.parse
+import urllib.request
 from random import randint
 from subprocess import call
 import response_module as rmod
@@ -50,7 +50,7 @@ def select_text_input():
         text_for_pipeline = text_cleaner.replace("]","")
         return text_for_pipeline
 
-#FUNCTION B: loads a file of .json-format, in order to read the "text input"-value and to modify it. 
+#FUNCTION B: loads a file of .json-format, in order to read the "text input"-value and to modify it.
 def read_json_metadata():
     global robot_metadata
     global text_for_spacy
@@ -63,7 +63,7 @@ def read_json_metadata():
         robot_metadata.write(json.dumps(received_data, sort_keys = True,  indent=4))
         robot_metadata.truncate()
 
-#FUNCTION C: Matches (a) given string(s) to an entity in DBPedia. Returns the structured data of the entity 
+#FUNCTION C: Matches (a) given string(s) to an entity in DBPedia. Returns the structured data of the entity
 #in the form of a dictionary
 def link_to_dbpedia(doc):
     query = doc
@@ -136,7 +136,7 @@ def emotion_processor(text_input):
     proc = subprocess.Popen([ 'echo {} | ./emotionStream.sh'.format(sentence)], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
     modif_output = out.decode().split('],')[1]
-    modif_label = modif_output.split(":[")[1:] 
+    modif_label = modif_output.split(":[")[1:]
     modif = modif_label[0]
     modifiers_as_string = modif.strip("{}}]")
     modifiers = modifiers_as_string.split(",")
@@ -146,7 +146,7 @@ def emotion_processor(text_input):
         value = int(value.strip('"'))
         modifier_dict[item] = value
     emo_output = out.decode().split('],')[0]
-    emo_label = emo_output.split(":[")[1:] 
+    emo_label = emo_output.split(":[")[1:]
     emo = emo_label[0]
     emo_as_string = emo.strip("{}}]")
     emotions = emo_as_string.split(",")
@@ -161,7 +161,7 @@ def emotion_processor(text_input):
     return emotions_score_dict
 
 def emotions_extraction(target_emo_dict):
-    emotions_score_dict_to_process = target_emo_dict  
+    emotions_score_dict_to_process = target_emo_dict
     for emotion,value in emotions_score_dict_to_process.items():
         received_data['emotions']['detected_emotion'].append(emotion)
         robot_metadata.seek(0)
@@ -169,13 +169,13 @@ def emotions_extraction(target_emo_dict):
         robot_metadata.truncate()
 
 #STRUCTURAL PROCESSOR (FUNCTION) NEEDS TO BE DEFINED
-def structural_processor(): 
+def structural_processor():
     received_data['structure']['wordcount'] = int(len(dict_of_words))
     for sent in doc.sents:
-        received_data['structure']['number_of_sentences'] += 1    
-    for word in doc:      
+        received_data['structure']['number_of_sentences'] += 1
+    for word in doc:
         if 'JJ' in word.tag_:
-            received_data['structure']['adjective_count'] += 1 
+            received_data['structure']['adjective_count'] += 1
         if 'RB' in word.tag_:
             received_data['structure']['adverbs'] += 1
         if 'PRP' in word.tag_:
@@ -184,13 +184,13 @@ def structural_processor():
             received_data['structure']['non_future'] += 1
         if 'VBN' in word.tag_:
             received_data['structure']['non_future'] += 1
-        if 'VB' in word.tag_: 
+        if 'VB' in word.tag_:
             received_data['structure']['future'] += 1
         if 'VBG' in word.tag_:
-            received_data['structure']['future'] += 1            
-        if 'VBP' in word.tag_: 
             received_data['structure']['future'] += 1
-        if 'VBZ' in word.tag_:  
+        if 'VBP' in word.tag_:
+            received_data['structure']['future'] += 1
+        if 'VBZ' in word.tag_:
             received_data['structure']['future'] += 1
         robot_metadata.seek(0)
         robot_metadata.write(json.dumps(received_data, sort_keys = True, indent=4))
@@ -212,15 +212,15 @@ def label_processed_metadatafile():
     unprocessed_end = ".json"
     if metadata.endswith(unprocessed_end):
         rename(metadata, metadata.replace(unprocessed_end, '_processed.json', 1))
-        
+
 #ENTER THE NAME OF DEMO INPUT FILE: sample_input_v2.json or metadata.json
 #def demos_file():
 #    global filename_widget
 #    filename_widget = widgets.Text()
 #    display(filename_widget)
 #    def handle_submit(sender):
-#        print(filename_widget.value)        
-#    filename_widget.on_submit(handle_submit) 
+#        print(filename_widget.value)
+#    filename_widget.on_submit(handle_submit)
 #demos_file()
 
 #ENTER THE NAME OF DEMO INPUT FILE: We are looking for Richard Franzen an American who has built a robot. He resides in Tagoyashi.
@@ -230,13 +230,13 @@ def label_processed_metadatafile():
 #    text_widget = widgets.Text()
 #    display(text_widget)
 #    def handle_submit(sender):
-#        print(text_widget.value)        
+#        print(text_widget.value)
 #    text_widget.on_submit(handle_submit)
 #demos_text()
 
 #PROCESSING PIPELINE: Execute all defined functions and modules:
 select_metadata()
-with open(metadata, 'r+') as robot_metadata:  
+with open(metadata, 'r+') as robot_metadata:
     select_text_input()
     received_data = json.load(robot_metadata)
     if received_data['process_state'] == '':
@@ -245,8 +245,8 @@ with open(metadata, 'r+') as robot_metadata:
         doc = nlp(text_for_spacy)
         semantic_processing_with_dpbedia()
         create_dict_of_words_vs_postags()
-        create_dict_of_content_words() 
-        structural_processor()        
+        create_dict_of_content_words()
+        structural_processor()
         processed_emotion = emotion_processor(doc)
         emotions_extraction(processed_emotion)
         generated_response = rmod.generate_response(received_data['semantic'])

@@ -5,10 +5,10 @@ import os
 import IPython
 from ipywidgets import widgets
 from IPython.display import display
-import readability 
+import readability
 import spotlight
 
-nlp = spacy.load('en')   
+nlp = spacy.load('en')
 
 def select_metadata():
     global metadata
@@ -20,7 +20,7 @@ def select_metadata():
         filename_clean = metadata.replace("[","")
         filename_cleaner = filename_clean.replace("'","")
         metadata = filename_cleaner.replace("]","")
-        return metadata    
+        return metadata
 
 #FUNCTION A: creates a text input from an argument which has to be typed in the following form:
 #################  "Hello, this is a new sentence. And this is a newer one"
@@ -36,7 +36,7 @@ def select_text_input():
         text_for_pipeline = text_cleaner.replace("]","")
         return text_for_pipeline
 
-#FUNCTION B: loads a file of .json-format, in order to read the "text input"-value and to modify it. 
+#FUNCTION B: loads a file of .json-format, in order to read the "text input"-value and to modify it.
 def read_json_metadata():
     global robot_metadata
     global text_for_spacy
@@ -90,18 +90,18 @@ def create_dict_of_content_words():
         if 'JJ' in word.tag_:
             dict_of_content_words[word.string] = word.tag_
         if 'RB' in word.tag_:
-            dict_of_content_words[word.string] = word.tag_      
+            dict_of_content_words[word.string] = word.tag_
 
 #EMOTIONTAGGER: A FUNCTION THAT CALLS THE EMOTIONTAGGER (VOSSEN) VIA A .sh SCRIPT / A .java/.lib FILE
 
 #STRUCTURAL PROCESSOR (FUNCTION) NEEDS TO BE DEFINED
-def structural_processor(): 
+def structural_processor():
     received_data['structure']['wordcount'] = int(len(dict_of_words))
     for sent in doc.sents:
-        received_data['structure']['number_of_sentences'] += 1    
-    for word in doc:      
+        received_data['structure']['number_of_sentences'] += 1
+    for word in doc:
         if 'JJ' in word.tag_:
-            received_data['structure']['adjective_count'] += 1 
+            received_data['structure']['adjective_count'] += 1
         if 'RB' in word.tag_:
             received_data['structure']['adverbs'] += 1
         if 'PRP' in word.tag_:
@@ -110,13 +110,13 @@ def structural_processor():
             received_data['structure']['non_future'] += 1
         if 'VBN' in word.tag_:
             received_data['structure']['non_future'] += 1
-        if 'VB' in word.tag_: 
+        if 'VB' in word.tag_:
             received_data['structure']['future'] += 1
         if 'VBG' in word.tag_:
-            received_data['structure']['future'] += 1            
-        if 'VBP' in word.tag_: 
             received_data['structure']['future'] += 1
-        if 'VBZ' in word.tag_:  
+        if 'VBP' in word.tag_:
+            received_data['structure']['future'] += 1
+        if 'VBZ' in word.tag_:
             received_data['structure']['future'] += 1
         robot_metadata.seek(0)
         robot_metadata.write(json.dumps(received_data))
@@ -138,16 +138,16 @@ def structural_processor():
 #WORDLENGTH MISSING
 
 #READABILITY FUNCT
-import readability 
+import readability
 text = "We are looking for Richard Franzen, an American who has built a robot, he resides in Tagoyashi."
 def structure_processor(text):
     result = readability.getmeasures(text)
     print(result)
-    return result  
+    return result
 structure_processor()
-# MvE to do: output it to the right json format 
+# MvE to do: output it to the right json format
 
-#MAYBE A CLEANUP FUNCTION FOR POSTPROCESSING (DEMO) CAN BE USEFUL. MUST BE A SELECT 
+#MAYBE A CLEANUP FUNCTION FOR POSTPROCESSING (DEMO) CAN BE USEFUL. MUST BE A SELECT
 #CLEANING OF KEY-VALUES.... TO BE DECIDED YET
 def metadata_cleaning():
     print('Clean it up!')
@@ -158,7 +158,7 @@ def demos_file():
     filename_widget = widgets.Text()
     display(filename_widget)
     def handle_submit(sender):
-        print(filename_widget.value)        
+        print(filename_widget.value)
     filename_widget.on_submit(handle_submit)
 demos_file()
 
@@ -169,14 +169,14 @@ def demos_text():
     text_widget = widgets.Text()
     display(text_widget)
     def handle_submit(sender):
-        print(text_widget.value)        
+        print(text_widget.value)
     text_widget.on_submit(handle_submit)
 demos_text()
 
 #PROCESSING SEQUENCE 1: Execute all defined the functions
 #metadata_cleaning() ---function not defined yet
 select_metadata()
-with open(metadata, 'r+') as robot_metadata:  
+with open(metadata, 'r+') as robot_metadata:
     select_text_input()
     received_data = json.load(robot_metadata)
     read_json_metadata()
@@ -185,8 +185,7 @@ with open(metadata, 'r+') as robot_metadata:
     semantic_processing()
     #entity_linking()  ---function not defined yet
     create_dict_of_words_vs_postags()
-    create_dict_of_content_words() 
+    create_dict_of_content_words()
     structural_processor()
     #emotion_processing  ---function not defined yet
 #SOME MISSING FUNCTIONS
-
