@@ -233,7 +233,7 @@ def annotate_and_respond(text):
     counter = str(randint(0,100))
     global outputfile
     #received_data['process_state'] = 'processed'
-    outputfile_name = 'processed_sentence_' + counter + '.json'
+    outputfile_name = 'processed/processed_sentence_' + counter + '.json'
     outputfile = open(outputfile_name, 'w')
     with open('metadata.json', 'r+') as robot_metadata:
         global received_data
