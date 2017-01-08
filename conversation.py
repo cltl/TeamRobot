@@ -10,7 +10,6 @@
 
 import spacy
 import json
-import sys
 import subprocess
 from random import randint
 import urllib.parse
@@ -64,7 +63,7 @@ def extract_entity_values(entity):
             ent_type_in_dbp = dbp_resrc_dict['@types']
             ent_uri_in_dbp = dbp_resrc_dict['@URI']
             ent_conf_in_dbp = dbp_resrc_dict['@similarityScore']
-    except:
+    except KeyError:
         ent_name_in_dbp = ''
         ent_type_in_dbp = ''
         ent_uri_in_dbp = ''
@@ -109,6 +108,8 @@ def emotion_processor(text_input):
     emotions_score_dict = {}
     proc = subprocess.Popen([ 'echo {} | ./emotionStream.sh'.format(sentence)], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
+    if err:
+        print('Error with the emotion processor')
     modif_output = out.decode().split('],')[1]
     modif_label = modif_output.split(":[")[1:]
     modif = modif_label[0]
@@ -180,7 +181,6 @@ def annotate_and_respond(text):
     outputfile_name = 'processed/processed_sentence_' + counter + '.json'
     outputfile = open(outputfile_name, 'w')
     with open('metadata.json', 'r+') as robot_metadata:
-        #global received_data
         received_data = json.load(robot_metadata)
         print(received_data)
         doc = nlp(text)
