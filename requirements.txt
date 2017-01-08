@@ -4,3 +4,6 @@ ipython==5.1.0
 apiai==1.0.2
 pyspotlight==0.7.1
 readability==0.2
+python-socketio==1.6.2
+Flask-SocketIO==2.8.2
+Flask==0.11.1

@@ -10,7 +10,6 @@
 
 import json
 import os
-import readability
 import spacy
 from random import randint
 
