@@ -92,7 +92,6 @@ def semantic_processing_with_dpbedia(doc, received_data, outputfile):
             received_data['semantic']['organisations'].update(interpreted_entity)
         if entity.label_ == 'PERSON':
             received_data['semantic']['people'].update(interpreted_entity)
-        outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
 
 # Also get the part of speech tags and make sure there is a structure for them
 def create_dict_of_words_vs_postags(doc):
@@ -140,7 +139,6 @@ def emotions_extraction(target_emo_dict, received_data, outputfile):
     emotions_score_dict_to_process = target_emo_dict
     for emotion,value in emotions_score_dict_to_process.items():
         received_data['emotions']['detected_emotion'].append(emotion)
-        outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
 
 # Gather stats about the structure of the conversation
 def structural_processor(dict_of_words, doc, received_data, outputfile):
@@ -166,7 +164,6 @@ def structural_processor(dict_of_words, doc, received_data, outputfile):
             received_data['structure']['future'] += 1
         if 'VBZ' in word.tag_:
             received_data['structure']['future'] += 1
-        outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
     for dependency in doc:
         if dependency.dep_ == 'neg':
             received_data['structure']['negations'] += 1
@@ -176,7 +173,6 @@ def structural_processor(dict_of_words, doc, received_data, outputfile):
             received_data['structure']['active_sentences'] += 1
         if dependency.dep_ == 'auxpass':
             received_data['structure']['passive_sentences'] += 1
-        outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
 
 #PROCESSING PIPELINE: Execute all defined functions and modules:
 def annotate_and_respond(text):
@@ -184,7 +180,7 @@ def annotate_and_respond(text):
     outputfile_name = 'processed/processed_sentence_' + counter + '.json'
     outputfile = open(outputfile_name, 'w')
     with open('metadata.json', 'r+') as robot_metadata:
-        global received_data
+        #global received_data
         received_data = json.load(robot_metadata)
         print(received_data)
         doc = nlp(text)
