@@ -11,9 +11,7 @@
 import spacy
 import json
 import sys
-import pprint
 import subprocess
-from subprocess import call, Popen, PIPE
 from random import randint
 import urllib.parse
 import urllib.request
@@ -27,17 +25,8 @@ print('------------\nLoading the language model, this may take a while\n\n------
 # Make sure the spacy module is loaded (this may take a while)
 nlp = spacy.load('en')
 
-def annotate(text):
-    doc = nlp(text)
-    entities = {}
-    for i in doc.ents:
-        entities[i.text] = i.ent_type_
-        outputstring = "What is " + i.text
-        os.system("say " + outputstring)
-        print(i.text, i.ent_type_)
-
 # Commands to deal with the input & output
-def getcmd(cmdlist):
+def getcmd():
     cmd = input('\nP3PP3R:> ')
     if cmd == 'quit':
         exit(0)
@@ -45,7 +34,7 @@ def getcmd(cmdlist):
 
 def start():
     print('\n-------')
-    cmd = getcmd(input)
+    getcmd()
     start()
 
 def structure_processor(text):
@@ -54,30 +43,6 @@ def structure_processor(text):
 
 # This is where the text annotation takes place
 # copied from Yassine's code
-
-def select_metadata():
-    global metadata
-    metadata = str(sys.argv[1])
-    if "-f" in metadata:
-        metadata = filename_widget.value
-    else:
-        filename_clean = metadata.replace("[","")
-        filename_cleaner = filename_clean.replace("'","")
-        metadata = filename_cleaner.replace("]","")
-        return metadata
-
-#FUNCTION A: creates a text input from an argument which has to be typed in the following form:
-#################  "Hello, this is a new sentence. And this is a newer one"
-def select_text_input():
-    global text_for_pipeline
-    text_from_commandline = str(sys.argv[2:])
-    if "/" in text_from_commandline:
-        text_for_pipeline = text_widget.value
-    elif text_from_commandline:
-        text_clean = text_from_commandline.replace("[","")
-        text_cleaner = text_clean.replace("'","")
-        text_for_pipeline = text_cleaner.replace("]","")
-        return text_for_pipeline
 
 # Link entities to DBpedia
 # To do: revert to local server
@@ -99,7 +64,6 @@ def extract_entity_values(entity):
             ent_type_in_dbp = dbp_resrc_dict['@types']
             ent_uri_in_dbp = dbp_resrc_dict['@URI']
             ent_conf_in_dbp = dbp_resrc_dict['@similarityScore']
-            dbp_resrc_dict
     except:
         ent_name_in_dbp = ''
         ent_type_in_dbp = ''
@@ -117,7 +81,7 @@ def create_entity_dict(selected_values):
     return dict_of_defined_entity
 
 # Bring it together
-def semantic_processing_with_dpbedia():
+def semantic_processing_with_dpbedia(doc, received_data, outputfile):
     for entity in doc.ents:
         entity_in_dbpedia = link_to_dbpedia(entity)
         dbp_values = extract_entity_values(entity_in_dbpedia)
@@ -131,25 +95,12 @@ def semantic_processing_with_dpbedia():
         outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
 
 # Also get the part of speech tags and make sure there is a structure for them
-def create_dict_of_words_vs_postags():
-    global dict_of_words
+def create_dict_of_words_vs_postags(doc):
     dict_of_words = {}
     for word in doc:
         dict_of_words[word.string] = word.tag_
 
-#CREATES A FUNCTION THAT GENERATES A DICTIONARY OF CONTENT WORD (EMOTION?)
-def create_dict_of_content_words():
-    global dict_of_content_words
-    dict_of_content_words = {}
-    for word in doc:
-        if 'NN' in word.tag_:
-            dict_of_content_words[word.string] = word.tag_
-        if 'VB' in word.tag_:
-            dict_of_content_words[word.string] = word.tag_
-        if 'JJ' in word.tag_:
-            dict_of_content_words[word.string] = word.tag_
-        if 'RB' in word.tag_:
-            dict_of_content_words[word.string] = word.tag_
+    return dict_of_words
 
 # Tag emotions (with Piek's emotion tagger)
 def emotion_processor(text_input):
@@ -185,14 +136,14 @@ def emotion_processor(text_input):
     return emotions_score_dict
 
 # And write them neatly to a file
-def emotions_extraction(target_emo_dict):
+def emotions_extraction(target_emo_dict, received_data, outputfile):
     emotions_score_dict_to_process = target_emo_dict
     for emotion,value in emotions_score_dict_to_process.items():
         received_data['emotions']['detected_emotion'].append(emotion)
         outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
 
 # Gather stats about the structure of the conversation
-def structural_processor():
+def structural_processor(dict_of_words, doc, received_data, outputfile):
     received_data['structure']['wordcount'] = int(len(dict_of_words))
     for sent in doc.sents:
         received_data['structure']['number_of_sentences'] += 1
@@ -229,24 +180,19 @@ def structural_processor():
 
 #PROCESSING PIPELINE: Execute all defined functions and modules:
 def annotate_and_respond(text):
-    global robot_metadata
     counter = str(randint(0,100))
-    global outputfile
-    #received_data['process_state'] = 'processed'
     outputfile_name = 'processed/processed_sentence_' + counter + '.json'
     outputfile = open(outputfile_name, 'w')
     with open('metadata.json', 'r+') as robot_metadata:
         global received_data
         received_data = json.load(robot_metadata)
         print(received_data)
-        global doc
         doc = nlp(text)
-        semantic_processing_with_dpbedia()
-        create_dict_of_words_vs_postags()
-        create_dict_of_content_words()
-        structural_processor()
+        semantic_processing_with_dpbedia(doc, received_data, outputfile)
+        dict_of_words = create_dict_of_words_vs_postags(doc)
+        structural_processor(dict_of_words, doc, received_data, outputfile)
         processed_emotion = emotion_processor(doc)
-        emotions_extraction(processed_emotion)
+        emotions_extraction(processed_emotion, received_data, outputfile)
         generated_response = rmod.generate_response(received_data['semantic'])
         received_data['response'] = generated_response
         print(generated_response)
