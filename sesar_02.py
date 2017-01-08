@@ -5,24 +5,17 @@ Computaional Lexicology and Terminology Lab, "Team Robot"
 11-12-2016, Amsterdam
 """
 
-import os
-from os import rename, listdir
-import sys
 import json
-import spacy
-import pprint
-import IPython
-import spotlight
 import subprocess
-import readability
+import sys
 import urllib.parse
 import urllib.request
+
+import spacy
+from os import rename
 from random import randint
-from subprocess import call
-import response_module as rmod
-from subprocess import Popen,PIPE
-from ipywidgets import widgets
-from IPython.display import display
+
+from modules import response as rmod
 
 nlp = spacy.load('en')
 

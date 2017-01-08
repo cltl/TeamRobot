@@ -8,15 +8,17 @@
 # Author: Marieke.van.Erp@vu.nl
 # Date: 9 December 2016
 
-import spacy
 import json
 import subprocess
-from random import randint
 import urllib.parse
 import urllib.request
+
 import os
 import readability
-import response_module as rmod
+import spacy
+from random import randint
+
+from modules import response as rmod
 
 # A small warning that it may take a while for the data to load
 print('------------\nLoading the language model, this may take a while\n\n-------------\n')
