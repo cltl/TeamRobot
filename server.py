@@ -31,7 +31,7 @@ def annotate_and_respond(text):
         received_data['response'] = generated_response
         print(received_data)
         print(generated_response)
-        os.system("say " + generated_response)
+        #os.system("say " + generated_response)
         outputfile.write(json.dumps(received_data, sort_keys = True, indent=4))
         outputfile.close()
     return generated_response
