@@ -10,7 +10,7 @@ from random import randint
 from subprocess import call
 from subprocess import Popen,PIPE
 from modules import emotion as emotion_mod
-from modules import response_new as response_mod
+from modules import response as response_mod
 import nltk
 from nltk import word_tokenize
 from nltk.tag.stanford import StanfordPOSTagger
