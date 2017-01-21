@@ -1,0 +1,3 @@
+[submodule "cermine"]
+	path = Hotlist-Scholar/CERMINE
+	url = https://github.com/CeON/CERMINE
