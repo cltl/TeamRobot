@@ -22,19 +22,19 @@ angular.module('wbApp')
 
     mySocket.on('connecting', function() {
       $scope.connection.status = 'Connecting';
-    })
+    });
 
     mySocket.on('connect', function() {
       $scope.connection.status = 'Connected';
-    })
+    });
 
     mySocket.on('reconnecting', function() {
       $scope.connection.status = 'Reconnecting';
-    })
+    });
 
     mySocket.on('disconnect', function() {
       $scope.connection.status = 'Disconnect';
-    })
+    });
 
     mySocket.on('response', function (data) {
       var message = {};
@@ -45,12 +45,6 @@ angular.module('wbApp')
       $scope.messages.push(message);
 
       $scope.bar = true;
-      console.log(data)
-    });
-
-    mySocket.on('message', function (data) {
-      $scope.bar = true;
-      console.log(data)
     });
 
     $scope.submit = function() {
@@ -63,7 +57,7 @@ angular.module('wbApp')
         message.text = this.inputText;
         message.server = false;
         $scope.messages.push(message);
-        this.inputText = "";
+        this.inputText = '';
       }
-    }
+    };
   });
