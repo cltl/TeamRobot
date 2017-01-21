@@ -14,7 +14,7 @@ angular
     'btford.socket-io'
   ])
   .factory('mySocket', function (socketFactory) {
-    var myIoSocket = io.connect('http://localhost:5000/event');
+    var myIoSocket = io.connect('http://0.0.0.0:5000/event');
 
     var mySocket = socketFactory({
       ioSocket: myIoSocket
