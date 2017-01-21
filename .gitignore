@@ -3,8 +3,7 @@
 /bin
 /etc
 /include
-/lib/python2.7
-/lib/python3.5
+/lib
 /.ipynb_checkpoints
 .ipynb_checkpoints
 .ipynb_checkpoints
