@@ -1,19 +1,11 @@
-import os
-import sys
 import json
 import time
-import spotlight
 import subprocess
-import urllib.parse
-import urllib.request
 from random import randint
-from subprocess import call
-from subprocess import Popen,PIPE
 from modules import emotion as emotion_mod
 from modules import response as response_mod
 import nltk
 from nltk import word_tokenize
-from nltk.tag.stanford import StanfordPOSTagger
 from pprint import pprint
 
 '---------FUNCTIONS-------------------------------------------------------------------------------'
