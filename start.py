@@ -1,7 +1,7 @@
-from flask import Flask, request, abort, render_template
+from flask import Flask, request, abort
 import server
 
-from flask_socketio import SocketIO, send, emit
+from flask_socketio import SocketIO, emit
 
 
 application = Flask(__name__)

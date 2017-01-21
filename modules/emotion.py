@@ -37,7 +37,7 @@ def emotion_processor(text_input):
 
 def emotions_extraction(target_emo_dict, received_data, outputfile):
     emotions_score_dict_to_process = target_emo_dict
-    for emotion,value in emotions_score_dict_to_process.items():
+    for emotion in emotions_score_dict_to_process.items():
         received_data['emotions']['detected_emotion'].append(emotion)
 
 

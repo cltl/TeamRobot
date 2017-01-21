@@ -8,7 +8,7 @@ import nltk
 from nltk import word_tokenize
 from pprint import pprint
 
-'---------FUNCTIONS-------------------------------------------------------------------------------'
+#'---------FUNCTIONS-------------------------------------------------------------------------------'
 
 def select_text_input():
     text_for_nlp = "I hate and am angry at stupid abandoning fearful ugly ungrateful brundage"
@@ -43,11 +43,10 @@ def map_potential_concepts(list_words):
 
 def emotion_processor(text_input, meta_dd):
     sentence = text_input
-    modifier_dict = {}
     emotions_dict = {}
     emotions_score_dict = {}
     proc = subprocess.Popen(['echo {} | ./emotionStream.sh'.format(sentence)], stdout=subprocess.PIPE, shell=True)
-    (out, err) = proc.communicate()
+    (out, _) = proc.communicate()
     emotions = out.decode().split('],')[0].split(":[")[1:][0].strip("{}}]").split(",")
     for emotion in emotions:
         item0, value0 = emotion.split(":")
@@ -79,8 +78,8 @@ def query_hotlist_one(meta_dd, pcid, pot_con, timestamp):
     hotlist1_dict = json.load(hotlist1)
     extracted_concept = pot_con
     concept = {}
-    for episode,paper in hotlist1_dict.items():
-        for papercode, paper in paper.items():
+    for _,paper in hotlist1_dict.items():
+        for _, paper in paper.items():
             prvn = paper['authors']
             if len(prvn) == 2:
                 name_val = str(prvn['name']).lower()
@@ -131,12 +130,12 @@ def update_hotlist_zero(concept_code, matched_concept, hotlist_0_dict):
         hotlist_0_dict.update({concept_code : matched_concept})
     return hotlist_0_dict
 
-'---------LOADED-DICTIONARIES-------------------------------------------------------------------'
+#'---------LOADED-DICTIONARIES-------------------------------------------------------------------'
 
 conversation_log = {}
 hotlist_0_dict = {}
 
-'---------PIPELINE-RUNNING--------------------------------------------------------------------'
+#'---------PIPELINE-RUNNING--------------------------------------------------------------------'
 
 def annotate_and_respond(text):
     global conversation_log
