@@ -1,6 +1,3 @@
-[submodule "cermine"]
-	path = Hotlist-Scholar/CERMINE
-	url = https://github.com/CeON/CERMINE
 [submodule "EmotionTagger"]
 	path = EmotionTagger
 	url = https://github.com/cltl/EmotionTagger
