@@ -1,0 +1,29 @@
+{
+    "responses": {
+        "negative": [
+            {
+                "question": "What did you dislike most about <type>"
+            },
+            {
+                "question": "Was there anything particular at <type> that you did not enjoy"
+            }
+        ],
+        "neutral": [
+            {
+                "question": "Tell me more about <type>"
+            },
+            {
+                "question": "How do you feel about <type>"
+            }
+        ],
+        "positive": [
+            {
+                "question": "What did you enjoy most at <type>"
+            },
+            {
+                "question": "So, <type> was pretty good for you"
+            }
+        ]
+    },
+    "type": "institutions"
+}

@@ -56,6 +56,7 @@ def emotion_processor(text_input, meta_dd):
     emotions_score_dict = {}
     proc = subprocess.Popen(['echo {} | ./emotionStream.sh'.format(sentence)], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
+    pprint(out.decode())
     emotions = out.decode().split('],')[0].split(":[")[1:][0].strip("{}}]").split(",")
     for emotion in emotions:
         item0, value0 = emotion.split(":")
@@ -172,10 +173,25 @@ def annotate_and_respond(text):
     with open('memory/e01_s01_inproces.json', 'w+') as scene:
         scene.write(json.dumps(conversation_log, sort_keys=True, indent=4))
 
-    print("*******")
-    pprint(meta_dd['semantic'])
     # Grabs the emotion and emoratio
+    pprint(meta_dd['emotions']['detected_emotion'])
     emotion, emoratio = emotion_mod.emotion_ratio(meta_dd['emotions']['detected_emotion'], len(text.split()))
     print ("Emotion found: {} with an emotion ratio of {}".format(emotion, emoratio))
     generated_response = response_mod.generate_response(meta_dd['semantic'], emotion, emoratio)
     return generated_response
+
+def getcmd():
+    cmd = input('\nP3PP3R:> ')
+    if cmd == 'quit':
+        exit(0)
+    annotate_and_respond(cmd)
+
+def start():
+    print('\n-------')
+    getcmd()
+    start()
+
+
+if __name__ == '__main__':
+    start()
+    #annotate_and_respond(sys.argv[1])

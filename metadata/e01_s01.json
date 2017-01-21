@@ -1,0 +1,64 @@
+{
+    "emotions": {
+        "detected_emotion": [
+        ],
+        "information_state": []
+    },
+    "metadata": {
+        "input_text": "",
+        "lang": "nl",
+        "location": {
+            "geometry": {
+                "coordinates": [
+                    35.41,
+                    139.41
+                ],
+                "type": "Point"
+            },
+            "properties": {
+                "name": "Tokyo, Japan"
+            },
+            "type": "Feature"
+        },
+        "people_present": [
+            "Richard",
+            "Jelle"
+        ],
+        "episode_id": "episode_1",
+        "scene_id": "scene_1",
+        "script_id": "episode_1",
+        "speaker": "Jelle",
+        "timestamp": "2016-11-18T08:35:44.566050"
+    },
+    "process_state": "",
+    "response": "",
+    "semantic": {
+        "keywords": [
+            "televisie",
+            "goedendag"
+        ],
+        "organisations": {
+        },
+        "people": {
+        },
+        "places": {
+        },
+        "topics": [
+            "introduction"
+        ]
+    },
+    "structure": {
+        "active_sentences": 0,
+        "adjective_count": 0,
+        "adverbs": 0,
+        "future": 0,
+        "negations": 0,
+        "non_future": 0,
+        "number_of_sentences": 0,
+        "passive_sentences": 0,
+        "personal_pronouns": 0,
+        "prepositional_phrases_count": 0,
+        "word_length": 0,
+        "wordcount": 0
+    }
+}

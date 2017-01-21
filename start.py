@@ -21,7 +21,7 @@ def test_connect():
 def annotate_text(text):
     # need visibility of the global thread object
     response = server.annotate_and_respond(text)
-    socketio.emit('response', response, broadcast=True, namespace="/event")
+    socketio.emit('response', response, namespace="/event")
 
 @application.route('/', methods=['GET', 'POST'])
 def index():
@@ -41,5 +41,5 @@ def annotate_web(text):
     return response
 
 if __name__ == '__main__':
-    socketio.run(application)
+    socketio.run(application, host='0.0.0.0', debug=True)
     #application.run(debug=True, host='0.0.0.0')

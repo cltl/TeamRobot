@@ -1,0 +1,144 @@
+{
+    "e01_s01_D170117_T140644": {
+        "emotions": {
+            "detected_emotion": {
+                "anger": 3,
+                "anticipation": 1,
+                "disgust": 2,
+                "fear": 2,
+                "joy": 2,
+                "negative": 3,
+                "positive": 2,
+                "sadness": 2,
+                "surprise": 2,
+                "trust": 2
+            },
+            "information_state": []
+        },
+        "metadata": {
+            "episode_id": "e01",
+            "input_text": "hello trump this is you best friend obama remember hate anger bad feel good positive nice",
+            "lang": "nl",
+            "location": {
+                "geometry": {
+                    "coordinates": [
+                        35.41,
+                        139.41
+                    ],
+                    "type": "Point"
+                },
+                "properties": {
+                    "name": "Tokyo, Japan"
+                },
+                "type": "Feature"
+            },
+            "people_present": [
+                "Richard",
+                "Jelle"
+            ],
+            "scene_id": "s01",
+            "script_id": "episode_1",
+            "speaker": "Jelle",
+            "timestamp": "17-01-17T14:06:44"
+        },
+        "process_state": "",
+        "response": "",
+        "semantic": {
+            "keywords": [
+                "televisie",
+                "goedendag"
+            ],
+            "organisations": {},
+            "people": {},
+            "places": {},
+            "topics": [
+                "introduction"
+            ]
+        },
+        "structure": {
+            "active_sentences": 0,
+            "adjective_count": 0,
+            "adverbs": 0,
+            "future": 0,
+            "negations": 0,
+            "non_future": 0,
+            "number_of_sentences": 0,
+            "passive_sentences": 0,
+            "personal_pronouns": 0,
+            "prepositional_phrases_count": 0,
+            "word_length": 0,
+            "wordcount": 0
+        }
+    },
+    "e01_s01_D170117_T140700": {
+        "emotions": {
+            "detected_emotion": {
+                "anger": 3,
+                "anticipation": 1,
+                "disgust": 2,
+                "fear": 2,
+                "joy": 2,
+                "negative": 3,
+                "positive": 2,
+                "sadness": 2,
+                "surprise": 2,
+                "trust": 2
+            },
+            "information_state": []
+        },
+        "metadata": {
+            "episode_id": "e01",
+            "input_text": "hello trump this is you best friend obama remember hate anger bad feel good positive nice",
+            "lang": "nl",
+            "location": {
+                "geometry": {
+                    "coordinates": [
+                        35.41,
+                        139.41
+                    ],
+                    "type": "Point"
+                },
+                "properties": {
+                    "name": "Tokyo, Japan"
+                },
+                "type": "Feature"
+            },
+            "people_present": [
+                "Richard",
+                "Jelle"
+            ],
+            "scene_id": "s01",
+            "script_id": "episode_1",
+            "speaker": "Jelle",
+            "timestamp": "17-01-17T14:07:00"
+        },
+        "process_state": "",
+        "response": "",
+        "semantic": {
+            "keywords": [
+                "televisie",
+                "goedendag"
+            ],
+            "organisations": {},
+            "people": {},
+            "places": {},
+            "topics": [
+                "introduction"
+            ]
+        },
+        "structure": {
+            "active_sentences": 0,
+            "adjective_count": 0,
+            "adverbs": 0,
+            "future": 0,
+            "negations": 0,
+            "non_future": 0,
+            "number_of_sentences": 0,
+            "passive_sentences": 0,
+            "personal_pronouns": 0,
+            "prepositional_phrases_count": 0,
+            "word_length": 0,
+            "wordcount": 0
+        }
+    }
+}

@@ -1,0 +1,125 @@
+
+{
+  "0": {
+    "type": "Authors",
+    "responses":
+      {
+        "positive":
+          [
+            {
+            "question": "Why are you so fond of <type>"
+            },
+            {
+            "question": "<type> is pretty cool, isn't it"
+            }
+          ],
+        "neutral":
+          [
+            {
+            "question": "Tell me more about <type>"
+            },
+            {
+            "question": "How do you feel about <type>"
+            }
+          ],
+        "negative":
+          [
+            {
+            "question": "Have you had any bad run ins with <type>"
+            },
+            {
+            "question": "Is there something particular you do not like about <type>"
+            }
+          ]
+      }
+  },
+
+  "1": {
+      "type": "Cities",
+      "responses":
+      {
+        "positive":
+          [
+            {
+            "question": "So, what do you like about <type>"
+            },
+            {
+            "question": "What is the best place to visit in <type>"
+            }
+          ],
+        "neutral":
+          [
+            {
+            "question": "Tell me more about <type>"
+            },
+            {
+            "question": "How do you feel about <type>"
+            }
+          ],
+        "negative":
+          [
+            {
+            "question": "Is there something specific you don't like about <type>"
+            },
+            {
+            "question": "Have you had any bad visits to <type>"
+            }
+          ]
+      }
+    },
+    "2": {
+      "type": "institutions",
+      "responses":
+      {
+        "positive":
+          [
+            {
+            "question": "What did you enjoy most at <type>"
+            },
+            {
+            "question": "So, <type> was pretty good for you"
+            }
+          ],
+        "neutral":
+          [
+            {
+            "question": "Tell me more about <type>"
+            },
+            {
+            "question": "How do you feel about <type>"
+            }
+          ],
+        "negative":
+          [
+            {
+            "question": "What did you dislike most about <type>"
+            },
+            {
+            "question": "Was there anything particular at <type> that you did not enjoy"
+            }
+          ]
+      }
+    },
+    "ask_confirmation": {
+      "responses": 
+        [
+          {
+            "question": "Could you repeat <type>"
+          },
+          {
+            "question": "Did you mention <type>"
+          }
+        ]
+    },
+    "no_entities": {
+      "responses": 
+        [
+          {
+            "question": "Nice weather today, isn't it"
+          },
+          {
+            "question": "How do you feel today"
+          }
+        ]
+    }
+}
