@@ -464,7 +464,7 @@ class ScholarArticleParser(object):
         has a class attribute.
         """
         res = tag.get('class') or []
-        if type(res) != list:
+        if not isinstance(res, list):
             # BeautifulSoup 3 can return e.g. 'gs_md_wp gs_ttss',
             # so split -- conveniently produces a list in any case
             res = res.split()
@@ -735,7 +735,7 @@ class SearchScholarQuery(ScholarQuery):
         self.words_none = None # None of these words
         self.phrase = None
         self.scope_title = False # If True, search in title only
-        self.author = None 
+        self.author = None
         self.pub = None
         self.timeframe = [None, None]
         self.include_patents = True
@@ -1090,8 +1090,6 @@ def txt(querier, with_globals):
         for item in items:
             if item[0] is not None:
                 print(fmt % (item[1], item[0]))
-        if len(items) > 0:
-            print
 
     articles = querier.articles
     for art in articles:

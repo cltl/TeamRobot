@@ -14,8 +14,8 @@ def select_question_topic(semantic):
     question_topic = random.choice(list(subjects.keys()))
     return question_topic
 
-def do_load_questions(type):
-    with open("questions/" + type + ".json") as json_file:
+def do_load_questions(question_type):
+    with open("questions/" + question_type + ".json") as json_file:
         json_data = json.load(json_file)['responses']
     return json_data
 
@@ -29,8 +29,8 @@ def select_nonsense_question():
 def check_confidence_values():
     return NotImplemented
 
-def do_select_entity(semantic, type):
-    values = list(semantic[type].values())
+def do_select_entity(semantic, entity_type):
+    values = list(semantic[entity_type].values())
     return random.choice(values)
 
 def select_response(responses, emotion):

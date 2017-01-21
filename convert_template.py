@@ -3,8 +3,8 @@ import os
 import json
 
 def start(template):
-    with open(template, 'r+') as input:
-        data = json.load(input)
+    with open(template, 'r+') as template_file:
+        data = json.load(template_file)
 
         responses = {}
 
