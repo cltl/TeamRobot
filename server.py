@@ -10,10 +10,6 @@ from pprint import pprint
 
 #'---------FUNCTIONS-------------------------------------------------------------------------------'
 
-def select_text_input():
-    text_for_nlp = "I hate and am angry at stupid abandoning fearful ugly ungrateful brundage"
-    return text_for_nlp
-
 def load_json(text):
     metadata_ep_sc = "metadata/e_s.json"
     loaded_metadata = open(metadata_ep_sc,'r+')
@@ -27,7 +23,7 @@ def load_json(text):
         meta_dd["metadata"]["input_text"] = text
     return metadata_ep_sc, meta_dd
 
-def get_exact_concepts(text):
+def get_nouns(text):
     list_of_words = []
     for word,tag in nltk.pos_tag(word_tokenize(text)):
         if tag == 'NN':
@@ -36,26 +32,18 @@ def get_exact_concepts(text):
 
 def map_potential_concepts(list_words):
     potential_concepts = {}
-    #TODO: ask about id
+    concept_id = 1
     for potential_concept in list_words:
-        potential_concepts['pcid'+str(randint(10,99))] = potential_concept
+        potential_concepts['pcid'+str(concept_id)] = potential_concept
+        concept_id += 1
     return potential_concepts
 
-def emotion_processor(text_input, meta_dd):
-    sentence = text_input
-    emotions_dict = {}
-    emotions_score_dict = {}
-    proc = subprocess.Popen(['echo {} | ./emotionStream.sh'.format(sentence)], stdout=subprocess.PIPE, shell=True)
-    (out, _) = proc.communicate()
-    emotions = out.decode().split('],')[0].split(":[")[1:][0].strip("{}}]").split(",")
-    for emotion in emotions:
-        item0, value0 = emotion.split(":")
-        item = item0.strip('"')
-        value = int(value0.strip('"'))
-        emotions_dict[item] = value
-    for key, value in emotions_dict.items():
-        emotions_score_dict[key] = value
-        meta_dd['emotions']['detected_emotion'] = emotions_score_dict
+def emotion_processor(text, meta_dd):
+    processor = subprocess.Popen(['echo {} | ./emotionStream.sh'.format(text)], stdout=subprocess.PIPE, shell=True)
+    processor_output, _ = processor.communicate()
+    decoded_output = processor_output.decode()
+    emotions_dict = json.loads(decoded_output)['emotion'][0]
+    meta_dd['emotions']['detected_emotion'] = emotions_dict
     return emotions_dict
 
 def create_dict_per_concept(type_,conceptmention, timestamp):
@@ -90,7 +78,6 @@ def query_hotlist_one(meta_dd, pcid, pot_con, timestamp):
                         inst_val = 'none'
                     paper_name = str(paper['title'])
                     name_val += "<" + paper_name + ">" + inst_val
-                    print(name_val)
 
                     concept.update({'Author' : name_val})
                 inst_val = str(prvn['institution']).lower()
@@ -142,9 +129,8 @@ def annotate_and_respond(text):
     global hotlist_0_dict
 
     timestamp_log = time.strftime("D%y%m%d_T%H%M%S")
-    #text = select_text_input()
     metadata, meta_dd = load_json(text)
-    list_of_words = get_exact_concepts(text)
+    list_of_words = get_nouns(text)
     potent_con = map_potential_concepts(list_of_words)
     emotion_processor(text,meta_dd)
     dictionary_of_concepts = {}
@@ -158,14 +144,12 @@ def annotate_and_respond(text):
 
     with open('knowledge/hotlist_0.json', 'w+') as hotlist_zero:
         hotlist_zero.write(json.dumps(hotlist_0_dict, sort_keys=True, indent=4))
+
     conversation_log.update({metadata.strip('.json') + "_" + timestamp_log: meta_dd})
 
     with open('memory/e01_s01_inproces.json', 'w+') as scene:
         scene.write(json.dumps(conversation_log, sort_keys=True, indent=4))
 
-    print("*******")
-    pprint(meta_dd['semantic'])
-    # Grabs the emotion and emoratio
     emotion, emoratio = emotion_mod.emotion_ratio(meta_dd['emotions']['detected_emotion'], len(text.split()))
     print ("Emotion found: {} with an emotion ratio of {}".format(emotion, emoratio))
     generated_response = response_mod.generate_response(meta_dd['semantic'], emotion, emoratio)
