@@ -71,8 +71,6 @@ body {
     padding-top: 30px;
 
     .msg{
-      margin-bottom: 30px;
-
       font-size: 11pt;
     }
 
@@ -87,7 +85,7 @@ body {
       font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
       font-weight: 500;
       text-align: left;
-      width: 70%;
+      max-width: 70%;
       margin-left: 8.5%;
       float: left;
 
@@ -104,7 +102,7 @@ body {
       font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
       font-weight: 500;
       text-align: right;
-      width: 70%;
+      max-width: 70%;
       margin-right: 8.5%;
       float: right;
 
@@ -165,5 +163,116 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+}
+
+.gray-bg{
+  background-color: #2B2A27;
+}
+
+
+.response-editor {
+  background-color: #eee;
+  color: #555;
+}
+
+.go-back {
+  font-family: monospace;
+  font-style: italic;
+  margin: 10px 0px 0px 20px;
+
+  a {
+    color: gray;
+    text-decoration: underline;
+  }
+}
+
+.code-container {
+  button {
+    margin-top: 10px;
+    font-family: monospace;
+    background-color: #fff;
+    border: none;
+    border-radius: .25em;
+    -webkit-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.75);
+  }
+
+  .add-response {
+    margin-left: 5%;
+  }
+
+  .remove-response {
+    margin-left: 1%;
+  }
+
+  .save-responses {
+    margin-top: 2%;
+    margin-left: 5%;
+  }
+
+  .type {
+    margin-left: 5%;
+    font-family: monospace;
+  }
+
+  input {
+    width: 95%;
+    border: none;
+  }
+
+  .spacer {
+    margin: 2em;
+  }
+
+  .spacer-top {
+    margin: 3em;
+  }
+
+  .highlight-type {
+    color: #fb2d7e;
+  }
+
+  .box-text {
+    font-family: monospace;
+    font-size: 0.9em;
+    top: 10px;
+    position: relative;
+    padding-left: 5%;
+  }
+
+  pre {
+    font-family: monospace;
+    background-color: #fff;
+    //width: em(440);
+    width: 90%;
+    //margin: 4em auto;
+    margin: 0 auto;
+    padding: 0.5em;
+    border-radius: .25em;
+    box-shadow: .1em .1em .5em rgba(0,0,0,.45);
+    line-height: 0;
+    counter-reset: line;
+
+    .fa {
+      float: right;
+    }
+
+    p {
+      margin: 0;
+      display: block;
+      line-height: 1.5rem;
+
+      &:before {
+        counter-increment: line;
+        content: counter(line);
+        display: inline-block;
+        border-right: 1px solid #ddd;
+        padding: 0 .5em;
+        margin-right: .5em;
+        color: #888
+      }
+    }
   }
 }

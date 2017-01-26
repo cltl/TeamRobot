@@ -24,16 +24,16 @@ def load_json(text):
     return metadata_ep_sc, meta_dd
 
 def get_nouns(text):
-    list_of_words = []
+    words = []
     for word,tag in nltk.pos_tag(word_tokenize(text)):
         if tag == 'NN':
-            list_of_words.append(word)
-    return(list_of_words)
+            words.append(word)
+    return(words)
 
-def map_potential_concepts(list_words):
+def map_potential_concepts(words):
     potential_concepts = {}
     concept_id = 1
-    for potential_concept in list_words:
+    for potential_concept in words:
         potential_concepts['pcid'+str(concept_id)] = potential_concept
         concept_id += 1
     return potential_concepts
@@ -130,8 +130,8 @@ def annotate_and_respond(text):
 
     timestamp_log = time.strftime("D%y%m%d_T%H%M%S")
     metadata, meta_dd = load_json(text)
-    list_of_words = get_nouns(text)
-    potent_con = map_potential_concepts(list_of_words)
+    nouns = get_nouns(text)
+    potent_con = map_potential_concepts(nouns)
     emotion_processor(text,meta_dd)
     dictionary_of_concepts = {}
 

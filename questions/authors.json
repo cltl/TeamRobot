@@ -8,20 +8,23 @@
                 "question": "Is there something particular you do not like about <type>"
             }
         ],
-        "neutral": [
-            {
-                "question": "Tell me more about <type>"
-            },
-            {
-                "question": "How do you feel about <type>"
-            }
-        ],
         "positive": [
             {
                 "question": "Why are you so fond of <type>"
             },
             {
                 "question": "<type> is pretty cool, isn't it"
+            },
+            {
+                "question": "New response with <type>"
+            }
+        ],
+        "neutral": [
+            {
+                "question": "Tell me more about <type>"
+            },
+            {
+                "question": "How do you feel about <type>"
             }
         ]
     },

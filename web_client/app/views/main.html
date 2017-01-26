@@ -3,19 +3,22 @@
     <h2>{{ connection.status }}</h2>
   </div>
   <div class="msg-overview">
-    <div class="msg" ng-class="{'msg-server': message.server, 'msg-client': !message.server}" ng-repeat="message in messages">
-      <div class="msg-body">
-        <span>{{ message.text }}</span>
+    <div ng-repeat="message in messages">
+      <div class="msg" ng-class="{'msg-server': message.server, 'msg-client': !message.server}">
+        <div class="msg-body">
+          <span>{{ message.text }}</span>
+        </div>
+        <div class="msg-user">
+          <span>{{ message.user }}, {{ message.time }}</span>
+        </div>
       </div>
-      <div class="msg-user">
-        <span>{{ message.user }}, {{ message.time }}</span>
-      </div>
+      <div class="clearfix"></div>
     </div>
   </div>
 
   <div class="msg-input">
     <form ng-submit="submit()">
-      <input ng-model="inputText" type="text" placeholder="Enter some text" name="sentence">
+      <input ng-model="inputText" type="text" placeholder="Enter some text" name="sentence" autocomplete="off">
     </form>
   </div>
 </div>
