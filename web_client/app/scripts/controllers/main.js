@@ -62,7 +62,7 @@ angular.module('wbApp')
         $scope.messages.push(message);
         this.inputText = '';
       }
-    }
+    };
 
     $scope.sayHello = function() {
       var message = {};
@@ -71,7 +71,7 @@ angular.module('wbApp')
       message.text = 'Nice to meet you ' + this.username + '! You can tell me everything.';
       message.server = true;
       $scope.messages.push(message);
-    }
+    };
 
     $scope.submit = function() {
       this.sendMessage();
@@ -94,5 +94,5 @@ angular.module('wbApp')
         this.sayHello();
         this.inputText = '';
       }*/
-    }
+    };
   });

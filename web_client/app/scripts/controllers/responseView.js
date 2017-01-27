@@ -8,8 +8,8 @@
  * Controller of the wbApp
  */
 angular.module('wbApp')
-  .controller('ResponseViewCtrl', function ($scope, $rootScope, $routeParams, $http, $sce) {
-    $rootScope.bodyClass = "response-editor";
+  .controller('ResponseViewCtrl', function ($scope, $rootScope, $routeParams, $http) {
+    $rootScope.bodyClass = 'response-editor';
 
     $scope.file = $routeParams.FILE;
 
@@ -18,8 +18,8 @@ angular.module('wbApp')
     $scope.negatives = [];
 
     $scope.beautify = function(text) {
-      var beautified = text.replace('<type>', '<span class="highlight-type">&lt;type&gt;</span>');
-      return beautified
+      var beautified = text.replace('<type>', '<span class='highlight-type'>&lt;type&gt;</span>');
+      return beautified;
     };
 
     $scope.addResponse = function(target) {
@@ -28,69 +28,69 @@ angular.module('wbApp')
       response.styled = $scope.beautify(response.text);
       response.edit = false;
       target.push(response);
-    }
+    };
 
     $scope.removeResponse = function(target) {
-      var remove = confirm("Are you sure you want to remove the last response?");
-      if (remove == true) {
+      var remove = confirm('Are you sure you want to remove the last response?');
+      if (remove === true) {
         target.pop();
       }
-    }
+    };
 
     $scope.saveResponses = function() {
       var responses = {};
       responses.positive = $scope.positives.map(function(a) {return {question: a.text};});
       responses.neutral = $scope.neutrals.map(function(a) {return {question: a.text};});
       responses.negative = $scope.negatives.map(function(a) {return {question: a.text};});
-      console.log(responses);
       $http.post('http://' + location.hostname + ':5000/responses/' + $scope.file, responses).then(function(resp) {
-        console.log(resp);
         $scope.getFile();
       });
-    }
+    };
 
     $scope.getFile = function() {
       $http.get('http://' + location.hostname + ':5000/responses/'+$scope.file).then(function(resp) {
-        $scope.entity_type = resp['data']['type'];
+        $scope.entityType = resp.data['type'];
         $scope.positives = [];
         $scope.neutrals = [];
         $scope.negatives = [];
 
-        var positiveResponses = resp['data']['responses']['positive'];
-        for (var i = 0; i < positiveResponses.length; i++) {
-          var response = {};
-          response.text = positiveResponses[i]['question'];
+        var response;
+        var i;
+
+        var positiveResponses = resp.data['responses']['positive'];
+        for (i = 0; i < positiveResponses.length; i++) {
+          response = {};
+          response.text = positiveResponses[i].question;
           response.styled = $scope.beautify(response.text);
           response.edit = false;
           $scope.positives.push(response);
         }
 
-        var neutralResponses = resp['data']['responses']['neutral'];
-        for (var i = 0; i < neutralResponses.length; i++) {
-          var response = {};
-          response.text = neutralResponses[i]['question'];
+        var neutralResponses = resp.data['responses']['neutral'];
+        for (i = 0; i < neutralResponses.length; i++) {
+          response = {};
+          response.text = neutralResponses[i].question;
           response.styled = $scope.beautify(response.text);
           response.edit = false;
           $scope.neutrals.push(response);
         }
 
-        var negativeResponses = resp['data']['responses']['negative'];
-        for(var i = 0; i < negativeResponses.length; i++) {
-          var response = {};
-          response.text = negativeResponses[i]['question'];
+        var negativeResponses = resp.data['responses']['negative'];
+        for(i = 0; i < negativeResponses.length; i++) {
+          response = {};
+          response.text = negativeResponses[i].question;
           response.styled = $scope.beautify(response.text);
           response.edit = false;
           $scope.negatives.push(response);
         }
       }, function(response) {
-        console.log('Error', response);
       });
     }
 
     $scope.getFile();
   })
   .controller('EditResponseCtrl', function ($scope, $element, $timeout) {
-    var input = $("input", $element);
+    var input = $('input', $element);
 
     $scope.updateResponse = function() {
       $scope.response.edit = !$scope.response.edit;
@@ -98,7 +98,7 @@ angular.module('wbApp')
     }
 
     $scope.$watch('response.edit', function (newValue, oldValue) {
-      if (newValue == true) {
+      if (newValue === true) {
         $timeout(function(){
           input.focus();
         });

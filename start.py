@@ -1,5 +1,5 @@
 from flask import Flask, request, abort, render_template, jsonify
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 import server
 
 from flask_socketio import SocketIO, emit

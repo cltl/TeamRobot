@@ -9,18 +9,16 @@
  */
 angular.module('wbApp')
   .controller('ResponseCtrl', function ($scope, $rootScope, $routeParams, $http) {
-    $rootScope.bodyClass = "response-editor";
+    $rootScope.bodyClass = 'response-editor';
 
     $scope.files = [];
 
     $scope.getFiles = function() {
       $http.get('http://' + location.hostname + ':5000/responses').then(function(response) {
-        console.log(response);
-        $scope.files = response['data'];
+        $scope.files = response.data;
       }, function(response) {
-        console.log('Error', response);
       });
-    }
+    };
 
     $scope.getFiles();
   });
