@@ -1,21 +1,30 @@
 #SESaR
-##Semantic-, Emotional-, Structure Processor & Response Generator  
+##Semantic-, Emotional-, Structure Processor & Response Generator
 ######A demo of a linguistic processor, built for the VPRO Robot project
 
 ## Table of Contents
 - [Installation](#installation)
-- [Conversation.py](#conversation.py)
+- [Running the script](#Running the script)
 
 ## Installation
-The simplest way to get the demo running at the moment is to first install the SpaCy python package (`pip install spacy` or however you install your packages). Then download the SpaCy language models:  (see also [https://spacy.io/docs/usage/](https://spacy.io/docs/usage/)
+After cloning the repository, you first need to initialize the submodules:
+```
+git submodule init
+git submodule update
+```
 
-Another option is to setup a virtualenv:
+You may then setup a virtualenv to install the required packages in. This step is optional.
 ```
 virtualenv .
 source bin/activate
-pip install -r requirements.txt
-python -m spacy.en.download all
 ```
 
-## Conversation.py
-You can run the conversation.py script by invoking 'python conversation.py' from your command line. It will take a little while to load, but after that you can type in text and the computer will return something (at the moment this is just the output from the named entity recognition module, over the weekend this will be integrated with the sesar.py and response_module.py to perform the other processing steps).
+Finally, install the packages with:
+```
+pip install -r requirements.txt
+```
+
+## Running the script
+You can run the server with `python start.py`. There's also an accompanying web client located in `/web_client`. Use `grunt serve` or `grunt build` to run the web client.
+
+Alternatively, you may choose to run the `SESaR_03.ipynb` Jupyter Notebook.
