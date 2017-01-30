@@ -18,7 +18,7 @@ angular.module('wbApp')
     $scope.negatives = [];
 
     $scope.beautify = function(text) {
-      var beautified = text.replace('<type>', '<span class='highlight-type'>&lt;type&gt;</span>');
+      var beautified = text.replace('<type>', '<span class="highlight-type">&lt;type&gt;</span>');
       return beautified;
     };
 

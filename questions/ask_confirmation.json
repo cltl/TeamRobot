@@ -1,10 +1,19 @@
 {
-    "responses": [
-        {
-            "question": "Could you repeat <type>"
-        },
-        {
-            "question": "Did you mention <type>"
-        }
-    ]
+    "responses": {
+        "neutral": [
+            {
+                "question": "I didn't get that. Could you please say it again?"
+            }
+        ],
+        "negative": [
+            {
+                "question": "I'm not sure what you said. Do you mind saying it once more?"
+            }
+        ],
+        "positive": [
+            {
+                "question": "Do you mind repeating that, please?"
+            }
+        ]
+    }
 }

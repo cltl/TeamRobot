@@ -1,19 +1,31 @@
 {
     "responses": {
-        "negative": [
-            {
-                "question": "What did you dislike most about <type>"
-            },
-            {
-                "question": "Was there anything particular at <type> that you did not enjoy"
-            }
-        ],
         "neutral": [
             {
                 "question": "Tell me more about <type>"
             },
             {
-                "question": "How do you feel about <type>"
+                "question": "How do you feel about <type>?"
+            },
+            {
+                "question": "Have you ever collaborated with <type>?"
+            },
+            {
+                "question": "In what way do you think <type> is contributing to the field?"
+            },
+            {
+                "question": "What do you expect is the future of <type>?"
+            }
+        ],
+        "negative": [
+            {
+                "question": "What did you dislike most about <type>?"
+            },
+            {
+                "question": "Was there anything particular at <type> that you did not enjoy?"
+            },
+            {
+                "question": "Is there something about <type>'s work that you disagree with?"
             }
         ],
         "positive": [
@@ -21,7 +33,10 @@
                 "question": "What did you enjoy most at <type>"
             },
             {
-                "question": "So, <type> was pretty good for you"
+                "question": "Do you think that <type> has a positive influence in this field?"
+            },
+            {
+                "question": "What about <type> appeals to you?"
             }
         ]
     },

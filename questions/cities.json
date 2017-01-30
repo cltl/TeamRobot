@@ -1,27 +1,42 @@
 {
     "responses": {
-        "negative": [
-            {
-                "question": "Is there something specific you don't like about <type>"
-            },
-            {
-                "question": "Have you had any bad visits to <type>"
-            }
-        ],
         "neutral": [
             {
                 "question": "Tell me more about <type>"
             },
             {
                 "question": "How do you feel about <type>"
+            },
+            {
+                "question": "Do you think <type> is a good place for developing AI?"
+            },
+            {
+                "question": "Is <type> nice this time of year?"
+            }
+        ],
+        "negative": [
+            {
+                "question": "Is there something specific you don't like about <type>?"
+            },
+            {
+                "question": "Have you had any bad visits to <type>?"
+            },
+            {
+                "question": "Is there something about <type> that puts you off?"
             }
         ],
         "positive": [
             {
-                "question": "So, what do you like about <type>"
+                "question": "So, what do you like about <type>?"
             },
             {
-                "question": "What is the best place to visit in <type>"
+                "question": "What is the best place to visit in <type>?"
+            },
+            {
+                "question": "Is there something about <type> that you are especially fond of?"
+            },
+            {
+                "question": "What is the best thing about <type>?"
             }
         ]
     },

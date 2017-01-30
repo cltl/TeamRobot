@@ -1,0 +1,20 @@
+{
+    "responses": {
+        "negative": [
+            {
+                "question": "New response with <type>"
+            }
+        ],
+        "positive": [
+            {
+                "question": "New response with <type>"
+            }
+        ],
+        "neutral": [
+            {
+                "question": "New response with <type>"
+            }
+        ]
+    },
+    "type": "Journalists"
+}
