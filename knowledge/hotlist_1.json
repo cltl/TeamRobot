@@ -3,7 +3,7 @@
     "papers/0054.cermxml": {
       "abstract": "H G",
       "authors": {
-        "name": "Informatics Research Report EDI-INF-RR-"
+        "name": "Alison Pease"
       },
       "keywords": [
         "Evaluating Machine Creativity",
@@ -25,9 +25,9 @@
       },
       "keywords": [],
       "references": {
-        "reference_title": "-systems-an-illustrated-overview/."
+        "reference_title": "Systems, An Illustrated Overview."
       },
-      "title": "Full-FACE Poetry Generation"
+      "title": "Full-Face Poetry Generation"
     },
     "papers/978-1-4020-8852-0_8.cermxml": {
       "abstract": "I am apt to think, if we knew what it was to be an angel for one hour, we should return to this world, though it were to sit on the brightest throne in it, with vastly more loathing and reluctance than we would now descend into a loathsome dungeon or sepulchre1",
@@ -38,7 +38,7 @@
       "references": {
         "reference_title": "The Works of George Berkeley DD, Bishop of Cloyne"
       },
-      "title": "Chapter 7 Why I Want to be a Posthuman when I Grow Up"
+      "title": "Chapter 7 of Why I Want to be a Posthuman when I Grow Up"
     },
     "papers/bostrom.cermxml": {
       "abstract": "This paper traces the cultural and philosophical roots of transhumanist thought and describes some of the influences and contributions that led to the development of contemporary transhumanism.",
@@ -48,7 +48,7 @@
       },
       "keywords": [],
       "references": {
-        "reference_title": "\"Human Genetic Enhancements: A Transhumanist Perspective\""
+        "reference_title": "Human Genetic Enhancements: A Transhumanist Perspective"
       },
       "title": "A History of Transhumanist Thought"
     },
@@ -66,15 +66,17 @@
     },
     "papers/brundage_-_solar_thermal_technology_(ch._5).cermxml": {
       "abstract": "",
-      "authors": {},
+      "authors": {
+        "name": "Miles Brundage"
+      },
       "keywords": [],
       "references": {},
-      "title": ""
+      "title": "Solar Thermal Technology"
     },
     "papers/brundage_solar_thermal.cermxml": {
       "abstract": "Solar thermal power, also known as concentrating solar power, is a renewable source of energy that captures solar radiation the form of heat and uses that heat to drive a turbine that generates electricity. (Solar photovoltaic cells, in contrast, directly convert sunlight to electricity). Several large-scale solar thermal power plants have been built in the United States, and more are currently under construction in the Southwestern United States, California, and in countries including Spain, Israel, South Africa, and India. Compared to solar photovoltaics, solar thermal energy has the advantage of being able to store energy for hours in the form of heat, which allows production of electricity into the night and smoothing out of fluctuations when the weather is cloudy. This storage capability, as well as the relative technical simplicity of solar thermal systems, and the availability and reasonable cost of constituent materials and components, has led to rapid growth in the market for solar thermal power plants, and promises substantial potential for future growth.",
       "authors": {
-        "name": "Solar Thermal Power Fundamentals"
+        "name": "Miles Brundage"
       },
       "keywords": [],
       "references": {},
@@ -94,38 +96,41 @@
     },
     "papers/colton_icml00.cermxml": {
       "abstract": "",
-      "authors": {},
+      "authors": {
+        "name": "Simon Colton"
+      },
       "keywords": [],
       "references": {},
-      "title": ""
+      "title": "Automatic identification of mathematical concepts"
     },
     "papers/cook_cig11.cermxml": {
       "abstract": "- We present a system for generating complete game designs by evolving rulesets, character layouts and terrain maps in an orchestrated way. In contrast to existing approaches to generate such game components in isolation, our ANGELINA system develops game components in unison with an appreciation for their interrelatedness. We describe this multi-faceted evolutionary approach, and give some results from a first round of experimentation.",
       "authors": {
-        "institution": "Michael Cook and Simon Colton, Computational Creativity Group, Department of Computing, Imperial College"
+        "institution": "Computational Creativity Group at the Department of Computing of the Imperial College",
+        "name": "Michael Cook"
       },
       "keywords": [],
       "references": {
-        "reference_title": "Multiobjective exploration of the starcraft map space"
+        "reference_title": "Multi-objective exploration of the starcraft map space"
       },
       "title": "Multi-Faceted Evolution Of Simple Arcade Games"
     },
     "papers/evolutionary_enhancement.cermxml": {
-      "abstract": "Human beings are a marvel of evolved complexity. Such systems can be difficult to enhance. When we manipulate complex evolved systems which are poorly understood, our interventions often fail or backfire. It can appear as if there is a 'wisdom of nature' which we ignore at our peril. Sometimes the belief in nature's wisdom - and corresponding doubts about the prudence of tampering with nature, especially human nature - manifest as diffusely moral objections against enhancement. Such objections may be expressed as intuitions about the superiority of the natural or the troublesomeness of hubris, or as an evaluative bias in favor of the status quo. This paper explores the extent to which such prudence-derived anti-enhancement sentiments are justified. We develop a heuristic, inspired by the field of evolutionary medicine, for identifying promising human enhancement interventions. The heuristic incorporates the grains of truth contained in 'nature knows best' attitudes while providing criteria for the special cases where we have reason to believe that it is feasible for us to improve on nature.",
+      "abstract": "Human beings are a marvel of evolved complexity. Such systems can be difficult to enhance. When we manipulate complex evolved systems which are poorly understood, our interventions often fail or backfire. It can appear as if there is a “wisdom of nature” which we ignore at our peril. Sometimes the belief in nature's wisdom - and corresponding doubts about the prudence of tampering with nature, especially human nature - manifest as diffusely moral objections against enhancement. Such objections may be expressed as intuitions about the superiority of the natural or the troublesomeness of hubris, or as an evaluative bias in favor of the status quo. This paper explores the extent to which such prudence-derived anti-enhancement sentiments are justified. We develop a heuristic, inspired by the field of evolutionary medicine, for identifying promising human enhancement interventions. The heuristic incorporates the grains of truth contained in “nature knows best” attitudes while providing criteria for the special cases where we have reason to believe that it is feasible for us to improve on nature.",
       "authors": {
-        "institution": "Oxford Future of Humanity Institute Faculty of Philosophy & James Martin 21",
-        "name": "Nick Bostrom Anders Sandberg"
+        "institution": "Oxford Future of Humanity Institute Faculty of Philosophy",
+        "name": "Nick Bostrom"
       },
       "keywords": [],
       "references": {
         "reference_title": "In defense of the Expensive Tissue Hypothesis. Evolutionary Anatomy of the Primate Cerebral Cortex"
       },
-      "title": "The Wisdom of Nature: An Evolutionary Heuristic for Human Enhancement"
+      "title": "The Wisdom of Nature: An Evolutionary Heuristic for Human Enhancement"
     },
     "papers/utopiapaperai.cermxml": {
       "abstract": "",
       "authors": {
-        "name": "Miles Brundage May"
+        "name": "Miles Brundage"
       },
       "keywords": [],
       "references": {},

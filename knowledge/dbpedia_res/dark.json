@@ -1,0 +1,1716 @@
+{"instance": [
+{
+"instance": "dark-entity",
+"labels": [
+"Xargin 's",
+"Magwald Xargin",
+"Xargin",
+"xargin",
+"when",
+"his"
+],
+"projects": [{
+"mentions": 36,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 18
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/ORG",
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/PER"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Xargin"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"R.U",
+"R. U."
+],
+"projects": [{
+"mentions": 36,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 36
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/MISC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/RU"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Earth '",
+"Earth ..",
+"Earth .",
+"Earth ''",
+"Earth ( Venus",
+"Earth (",
+"Earth."
+],
+"projects": [{
+"mentions": 21,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 21
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/ORG",
+"http://www.newsreader-project.eu/ontologies/MISC",
+"http://www.newsreader-project.eu/ontologies/LOC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Earth"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Fuuka",
+"where",
+"unconscious",
+"fuuka",
+"Fuuka 's"
+],
+"projects": [{
+"mentions": 20,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 20
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/ORG",
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/MISC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Fuuka"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"amalgams",
+"the Amalgams",
+"amalgam",
+"his",
+"Amalgams",
+"they all"
+],
+"projects": [{
+"mentions": 18,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 18
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/ORG",
+"http://www.newsreader-project.eu/ontologies/MISC",
+"http://www.newsreader-project.eu/ontologies/PER"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Amalgams"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"OpenAI",
+"openai"
+],
+"projects": [{
+"mentions": 16,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 8
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/MISC",
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/ORG",
+"http://www.newsreader-project.eu/ontologies/PER"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/OpenAI"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Grigorenko 's",
+"his",
+"Grigorenko",
+"151 Grigorenko",
+"Petro Grigorenko",
+"grigorenko"
+],
+"projects": [{
+"mentions": 12,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 12
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Grigorenko"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"NerveGear",
+"the NerveGear",
+"their nervegear",
+"nervegear",
+"the NerveGear out-of-game"
+],
+"projects": [{
+"mentions": 10,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 10
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/ORG"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/NerveGear"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Outward God",
+"God of Spinoza",
+"God.",
+"god. ",
+"Inmost God"
+],
+"projects": [{
+"mentions": 10,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 10
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/ORG",
+"http://www.newsreader-project.eu/ontologies/MISC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/God"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"fol",
+"FOL"
+],
+"projects": [{
+"mentions": 10,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 8
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/FOL"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"tom",
+"ToM ..",
+"ToM"
+],
+"projects": [{
+"mentions": 9,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 9
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/MISC",
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/ORG"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/ToM"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"his",
+"their",
+"the evoker",
+"evoker"
+],
+"projects": [{
+"mentions": 8,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 8
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/ORG"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Evokers"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"his",
+"Kluwe",
+"Kluwe at one time",
+"their",
+"kluwe",
+"Kluwe 's",
+"the 2006 off-season Kluwe"
+],
+"projects": [{
+"mentions": 7,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 7
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Kluwe"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"QDs",
+"qds"
+],
+"projects": [{
+"mentions": 6,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/QDs"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Pei Wang and Ben Goertzel",
+"Ben Goertzel",
+"Goertzel"
+],
+"projects": [{
+"mentions": 6,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 6
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/LOC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Goertzel"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"DistBelief",
+"its predecessor distbelief",
+"distbelief"
+],
+"projects": [{
+"mentions": 6,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 6
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/MISC",
+"http://www.newsreader-project.eu/ontologies/PER"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/DistBelief"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Ph. D.",
+"Ph."
+],
+"projects": [{
+"mentions": 6,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 6
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/ORG",
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/MISC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/PhD"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"R.R",
+"R. R."
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/ORG"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/RR"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"J.R.R",
+"J. R. R"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/ORG",
+"http://www.newsreader-project.eu/ontologies/PER"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/JRR"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Kitch",
+"Kitch 's",
+"kitch 's",
+"kitch"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/London>",
+"sources": 4
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/London/entities/Kitch"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"the canadian company d-wave",
+"d-wave"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/MISC",
+"http://www.newsreader-project.eu/ontologies/PER"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/DWave"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Don'",
+"`` Don"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/MISC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Don"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"cometeers",
+"Cometeers"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/MISC",
+"http://www.newsreader-project.eu/ontologies/ORG"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Cometeers"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"STT",
+"the `` Standard Turing Test",
+"Standard Turing Test",
+"the STT"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/STT"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"groening",
+"Groening he",
+"Groening",
+"Matt Groening"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Groening"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"his",
+"wily",
+"Dr. Wily",
+"Wily"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Wily"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"mccanlies",
+"his",
+"Tim McCanlies",
+"McCanlies"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/McCanlies"
+},
+{
+"instance": "dark-entity",
+"labels": ["Logik"],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/MISC",
+"http://www.newsreader-project.eu/ontologies/ORG"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Logik"
+},
+{
+"instance": "dark-entity",
+"labels": ["determine"],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/MISC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Determining"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"volemak",
+"Volemak"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/PER"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Volemak"
+},
+{
+"instance": "dark-entity",
+"labels": ["bioengineered"],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Bioengineered"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Sherry Turkle",
+"Turkle"
+],
+"projects": [{
+"mentions": 4,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 4
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/PER"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Turkle"
+},
+{
+"instance": "dark-entity",
+"labels": ["jjaro"],
+"projects": [{
+"mentions": 3,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 3
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/MISC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Jjaro"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Flamel",
+"his",
+"the historical Flamel"
+],
+"projects": [{
+"mentions": 3,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 3
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Flamel"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"architect Ken Yeang",
+"yeang",
+"Yeang"
+],
+"projects": [{
+"mentions": 3,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 3
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Yeang"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"themselves",
+"heading",
+"wikilinked"
+],
+"projects": [{
+"mentions": 3,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 3
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Wikilinked"
+},
+{
+"instance": "dark-entity",
+"labels": ["Gorn"],
+"projects": [{
+"mentions": 3,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 3
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/MISC",
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/LOC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Gorn"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Daystrom",
+"daystrom",
+"his"
+],
+"projects": [{
+"mentions": 3,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 3
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Daystrom"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"qtes",
+"where",
+"QTEs"
+],
+"projects": [{
+"mentions": 3,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 3
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/QTEs"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Drange",
+"drange"
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Drange"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Yujees",
+"yujees"
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Yujees"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Slammers",
+"Drake 's Hammer 's Slammers"
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Slammers"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Eyeless",
+"eyeless"
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Eyeless"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"his",
+"Rittelmeyer"
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Rittelmeyer"
+},
+{
+"instance": "dark-entity",
+"labels": ["pc-to-phone"],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/PER",
+"http://www.newsreader-project.eu/ontologies/MISC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/PCtophone"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"BERRY",
+"berry"
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/BERRY"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"burnell",
+"Burnell"
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Burnell"
+},
+{
+"instance": "dark-entity",
+"labels": ["taloids"],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": [
+"http://www.newsreader-project.eu/ontologies/LOC",
+"http://www.newsreader-project.eu/ontologies/MISC"
+],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Taloids"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"δx =",
+"Δx ="
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/x"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"Alain Colmerauer with Philippe Roussel",
+"Colmerauer"
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Colmerauer"
+},
+{
+"instance": "dark-entity",
+"labels": [
+"dispossess",
+"Dispossessed"
+],
+"projects": [{
+"mentions": 2,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 2
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Dispossessed"
+},
+{
+"instance": "dark-entity",
+"labels": ["Holbergsallmenningen"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Holbergsallmenningen"
+},
+{
+"instance": "dark-entity",
+"labels": ["I.J"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/IJ"
+},
+{
+"instance": "dark-entity",
+"labels": ["cadrs"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/CADRs"
+},
+{
+"instance": "dark-entity",
+"labels": ["EXTINGUISH"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/EXTINGUISH"
+},
+{
+"instance": "dark-entity",
+"labels": ["singularity--representing"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Singularityrepresenting"
+},
+{
+"instance": "dark-entity",
+"labels": ["synthèses"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Synthses"
+},
+{
+"instance": "dark-entity",
+"labels": ["memorabilien"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Memorabilien"
+},
+{
+"instance": "dark-entity",
+"labels": ["Yubi"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Yubi"
+},
+{
+"instance": "dark-entity",
+"labels": ["teacher/master"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/TeacherMaster"
+},
+{
+"instance": "dark-entity",
+"labels": ["BCACP"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/BCACP"
+},
+{
+"instance": "dark-entity",
+"labels": ["SFFANZ"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/SFFANZ"
+},
+{
+"instance": "dark-entity",
+"labels": ["EVANLAB"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/EVANLAB"
+},
+{
+"instance": "dark-entity",
+"labels": ["IEQ"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/IEQ"
+},
+{
+"instance": "dark-entity",
+"labels": ["psy"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Psy"
+},
+{
+"instance": "dark-entity",
+"labels": ["raw-files"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/RAWfiles"
+},
+{
+"instance": "dark-entity",
+"labels": ["AzaToth"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/AzaToth"
+},
+{
+"instance": "dark-entity",
+"labels": ["QuTech"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/QuTech"
+},
+{
+"instance": "dark-entity",
+"labels": ["spanish-indians"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/SpanishIndians"
+},
+{
+"instance": "dark-entity",
+"labels": ["SIGNLL"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/SIGNLL"
+},
+{
+"instance": "dark-entity",
+"labels": ["budrys"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Budrys"
+},
+{
+"instance": "dark-entity",
+"labels": ["ludology"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Ludology"
+},
+{
+"instance": "dark-entity",
+"labels": ["julann"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Julann"
+},
+{
+"instance": "dark-entity",
+"labels": ["UNIDOS"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/UNIDOS"
+},
+{
+"instance": "dark-entity",
+"labels": ["APFCT"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/APFCT"
+},
+{
+"instance": "dark-entity",
+"labels": ["vorsorgeprinzip"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Vorsorgeprinzip"
+},
+{
+"instance": "dark-entity",
+"labels": ["AUTO"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/AUTO"
+},
+{
+"instance": "dark-entity",
+"labels": ["Akhlaq-i-Nasri"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/AkhlaqiNasri"
+},
+{
+"instance": "dark-entity",
+"labels": ["tsns"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/TSNs"
+},
+{
+"instance": "dark-entity",
+"labels": ["technoromantisme"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Technoromantisme"
+},
+{
+"instance": "dark-entity",
+"labels": ["trickjumping"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Trickjumping"
+},
+{
+"instance": "dark-entity",
+"labels": ["Robotess"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Robotess"
+},
+{
+"instance": "dark-entity",
+"labels": ["bloodbath"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Bloodbaths"
+},
+{
+"instance": "dark-entity",
+"labels": ["please"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Pleased"
+},
+{
+"instance": "dark-entity",
+"labels": ["conceivability"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Conceivability"
+},
+{
+"instance": "dark-entity",
+"labels": ["Handschuh"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Handschuh"
+},
+{
+"instance": "dark-entity",
+"labels": ["Medschecks"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Medschecks"
+},
+{
+"instance": "dark-entity",
+"labels": ["found"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Founding"
+},
+{
+"instance": "dark-entity",
+"labels": ["plutarch--when"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Plutarchwhen"
+},
+{
+"instance": "dark-entity",
+"labels": ["faciometrics"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/FacioMetrics"
+},
+{
+"instance": "dark-entity",
+"labels": ["Mustakhraja"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Mustakhraja"
+},
+{
+"instance": "dark-entity",
+"labels": ["EpiXCS"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/EpiXCS"
+},
+{
+"instance": "dark-entity",
+"labels": ["Weber-interpretations"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Weberinterpretations"
+},
+{
+"instance": "dark-entity",
+"labels": ["DttSP"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/DttSP"
+},
+{
+"instance": "dark-entity",
+"labels": ["Gandoki"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Gandoki"
+},
+{
+"instance": "dark-entity",
+"labels": ["SRIF"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/SRIF"
+},
+{
+"instance": "dark-entity",
+"labels": ["Teach"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Teach"
+},
+{
+"instance": "dark-entity",
+"labels": ["unimates"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Unimates"
+},
+{
+"instance": "dark-entity",
+"labels": ["Cybersphere"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Cybersphere"
+},
+{
+"instance": "dark-entity",
+"labels": ["animadversiones"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Animadversiones"
+},
+{
+"instance": "dark-entity",
+"labels": ["Texaurus"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Texaurus"
+},
+{
+"instance": "dark-entity",
+"labels": ["Astrotype"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Astrotype"
+},
+{
+"instance": "dark-entity",
+"labels": ["Powercorp"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Powercorp"
+},
+{
+"instance": "dark-entity",
+"labels": ["Hider"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Hider"
+},
+{
+"instance": "dark-entity",
+"labels": ["verist"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Verists"
+},
+{
+"instance": "dark-entity",
+"labels": ["Telemaque"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Telemaque"
+},
+{
+"instance": "dark-entity",
+"labels": ["Conro"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Conro"
+},
+{
+"instance": "dark-entity",
+"labels": ["Allo"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Allo"
+},
+{
+"instance": "dark-entity",
+"labels": ["LQE"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/LQE"
+},
+{
+"instance": "dark-entity",
+"labels": ["sagittarons"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Sagittarons"
+},
+{
+"instance": "dark-entity",
+"labels": ["Epimachos"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Epimachos"
+},
+{
+"instance": "dark-entity",
+"labels": ["junthor"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Junthor"
+},
+{
+"instance": "dark-entity",
+"labels": ["C-O-H"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/COH"
+},
+{
+"instance": "dark-entity",
+"labels": ["Flakey"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Flakey"
+},
+{
+"instance": "dark-entity",
+"labels": ["Ethik"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Ethik"
+},
+{
+"instance": "dark-entity",
+"labels": ["Rakeeb"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Rakeeb"
+},
+{
+"instance": "dark-entity",
+"labels": ["CanFly"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/CanFly"
+},
+{
+"instance": "dark-entity",
+"labels": ["Daum.net"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Daumnet"
+},
+{
+"instance": "dark-entity",
+"labels": ["PSiFA"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/PSiFA"
+},
+{
+"instance": "dark-entity",
+"labels": ["Faserstoffchemie"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Faserstoffchemie"
+},
+{
+"instance": "dark-entity",
+"labels": ["Cernavoda"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/LOC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Cernavoda"
+},
+{
+"instance": "dark-entity",
+"labels": ["Hanswijk"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/LOC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Hanswijk"
+},
+{
+"instance": "dark-entity",
+"labels": ["MALT-system"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/MALTsystem"
+},
+{
+"instance": "dark-entity",
+"labels": ["ch'"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Ch"
+},
+{
+"instance": "dark-entity",
+"labels": ["CLID"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/CLID"
+},
+{
+"instance": "dark-entity",
+"labels": ["KN/sqN"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/MISC"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/KNsqN"
+},
+{
+"instance": "dark-entity",
+"labels": ["persona-users"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Personausers"
+},
+{
+"instance": "dark-entity",
+"labels": ["programma"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Programma"
+},
+{
+"instance": "dark-entity",
+"labels": ["Absys"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/PER"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Absys"
+},
+{
+"instance": "dark-entity",
+"labels": ["Franck-Kosmos"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/FranckKosmos"
+},
+{
+"instance": "dark-entity",
+"labels": ["Bisokotuwa"],
+"projects": [{
+"mentions": 1,
+"project": "<http://www.newsreader-project.eu/project/AI>",
+"sources": 1
+}],
+"types": ["http://www.newsreader-project.eu/ontologies/ORG"],
+"uri": "http://www.newsreader-project.eu/data/AI/entities/Bisokotuwa"
+}
+]}
