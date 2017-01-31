@@ -63,7 +63,7 @@ def create_dict_per_concept(type_,conceptmention, timestamp):
     return concept_dict
 
 def query_hotlist_one(meta_dd, pcid, pot_con, timestamp):
-    hotlist1 = open("knowledge/hotlist_1.json", "r+")
+    hotlist1 = open("knowledge/hotlist_1.json", "r+", encoding='utf-8')
     hotlist1_dict = json.load(hotlist1)
     extracted_concept = pot_con
     concept = {}
@@ -169,13 +169,9 @@ def annotate_and_respond(text):
 
     for pcid, potential_concept in potent_con.items():
         conceptdict1 = query_hotlist_one(meta_dd, pcid, potential_concept, timestamp_log)
-        pprint("Processed conceptdict1")
         filter_definitive_concepts(conceptdict1, dictionary_of_concepts)
-        pprint("Filter conceptdict1")
         conceptdict2 = query_hotlist_two(meta_dd, pcid, potential_concept, timestamp_log, hl2)
-        pprint("Processed conceptdict2")
         filter_definitive_concepts(conceptdict2, dictionary_of_concepts)
-        pprint("Filter conceptdict2")
 
 
     for conc_id, concept in dictionary_of_concepts.items():
