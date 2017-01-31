@@ -11,7 +11,7 @@ import random as rand
 
 # In[11]:
 
-light_f, dark_f, non_f = open('knowledge/dbpedia_res/light.json', 'r+'), open('knowledge/dbpedia_res/dark.json', 'r+'), open('knowledge/dbpedia_res/non.json', 'r+')
+light_f, dark_f, non_f = open('knowledge/dbpedia_res/light.json', 'r+', encoding='utf-8'), open('knowledge/dbpedia_res/dark.json', 'r+', encoding='utf-8'), open('knowledge/dbpedia_res/non.json', 'r+', encoding='utf-8')
 light, dark, non = json.load(light_f), json.load(dark_f), json.load(non_f)
 light_ents, dark_ents, non_ents = light['instance'], dark['instance'], non['instance']
 len(light_ents), len(non_ents), len(dark_ents)
@@ -44,7 +44,7 @@ list_selected_dark_entities = []
 for dark_entity in dark_ents:
     d = dark_entity['uri']
     for statistics in dark_entity['projects']:
-        mentions, sources = statistics['mentions'], statistics['sources'] 
+        mentions, sources = statistics['mentions'], statistics['sources']
         #print(d, mentions, sources)
 
 

@@ -6,6 +6,7 @@ from modules import emotion as emotion_mod
 from modules import response as response_mod
 import nltk
 from nltk import word_tokenize
+from knowledge import h2_loader_v2
 from pprint import pprint
 
 #'---------FUNCTIONS-------------------------------------------------------------------------------'
@@ -108,6 +109,33 @@ def query_hotlist_one(meta_dd, pcid, pot_con, timestamp):
             meta_dd['semantic']['institutions'].update({ent_id:concept_dictionary})
         return extracted_concept, concept_dictionary
 
+
+def query_hotlist_two(meta_dd, pcid, pot_con, timestamp, hl2):
+    extracted_concept = pot_con
+    given_hl2 = hl2
+    hotlist2 = given_hl2
+    for instance in hotlist2:
+        for label in (instance['labels']):
+            if extracted_concept in label:
+                for type_ in instance['types']:
+                    if "/Place" in type_:
+                        ent_id = "plc" + (str(randint(10, 99)))
+                        instance['mention'] = extracted_concept
+                        instance['type'] = "cities"
+                        meta_dd['semantic']['cities'].update({ent_id: instance})
+                    if "Institution" in type_:
+                        ent_id = "ins" + (str(randint(10, 99)))
+                        instance['mention'] = extracted_concept
+                        instance['type'] = "institutions"
+                        meta_dd['semantic']['institutions'].update({ent_id: instance})
+                    if "/Person" in type_:
+                        ent_id = "per" + (str(randint(10, 99)))
+                        instance['mention'] = extracted_concept
+                        instance['type'] = "authors"
+                        meta_dd['semantic']['authors'].update({ent_id: instance})
+
+    return meta_dd
+
 def filter_definitive_concepts(concept, dictionary_of_concepts):
     concept_code = "defcon"+str(randint(10,99))
     dictionary_of_concepts.update({concept_code:concept})
@@ -121,6 +149,8 @@ def update_hotlist_zero(concept_code, matched_concept, hotlist_0_dict):
 
 conversation_log = {}
 hotlist_0_dict = {}
+hl2 = h2_loader_v2.hotlist2
+
 
 #'---------PIPELINE-RUNNING--------------------------------------------------------------------'
 
@@ -135,10 +165,19 @@ def annotate_and_respond(text):
     emotion_processor(text,meta_dd)
     dictionary_of_concepts = {}
 
+    pprint(text)
+
     for pcid, potential_concept in potent_con.items():
-        #TODO: Ask about returning two variables
-        conceptdict = query_hotlist_one(meta_dd, pcid, potential_concept, timestamp_log)
-        filter_definitive_concepts(conceptdict, dictionary_of_concepts)
+        conceptdict1 = query_hotlist_one(meta_dd, pcid, potential_concept, timestamp_log)
+        pprint("Processed conceptdict1")
+        filter_definitive_concepts(conceptdict1, dictionary_of_concepts)
+        pprint("Filter conceptdict1")
+        conceptdict2 = query_hotlist_two(meta_dd, pcid, potential_concept, timestamp_log, hl2)
+        pprint("Processed conceptdict2")
+        filter_definitive_concepts(conceptdict2, dictionary_of_concepts)
+        pprint("Filter conceptdict2")
+
+
     for conc_id, concept in dictionary_of_concepts.items():
         hotlist_0_dict = update_hotlist_zero(conc_id, concept, hotlist_0_dict)
 
