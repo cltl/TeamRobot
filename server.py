@@ -114,25 +114,47 @@ def query_hotlist_two(meta_dd, pcid, pot_con, timestamp, hl2):
     extracted_concept = pot_con
     given_hl2 = hl2
     hotlist2 = given_hl2
+    pprint("Extracted concept: {}".format(extracted_concept))
     for instance in hotlist2:
-        for label in (instance['labels']):
-            if extracted_concept in label:
-                for type_ in instance['types']:
-                    if "/Place" in type_:
-                        ent_id = "plc" + (str(randint(10, 99)))
-                        instance['mention'] = extracted_concept
-                        instance['type'] = "cities"
-                        meta_dd['semantic']['cities'].update({ent_id: instance})
-                    if "Institution" in type_:
-                        ent_id = "ins" + (str(randint(10, 99)))
-                        instance['mention'] = extracted_concept
-                        instance['type'] = "institutions"
-                        meta_dd['semantic']['institutions'].update({ent_id: instance})
-                    if "/Person" in type_:
-                        ent_id = "per" + (str(randint(10, 99)))
-                        instance['mention'] = extracted_concept
-                        instance['type'] = "authors"
-                        meta_dd['semantic']['authors'].update({ent_id: instance})
+        name = instance['uri'].split('/')[-1]
+        name = name.replace('_', ' ').replace('-', ' ').lower()
+        pprint(name)
+        if extracted_concept == name:
+            for type_ in instance['types']:
+                if "/Place" in type_:
+                    ent_id = "plc" + (str(randint(10, 99)))
+                    instance['mention'] = extracted_concept
+                    instance['type'] = "cities"
+                    meta_dd['semantic']['cities'].update({ent_id: instance})
+                if "Institution" in type_:
+                    ent_id = "ins" + (str(randint(10, 99)))
+                    instance['mention'] = extracted_concept
+                    instance['type'] = "institutions"
+                    meta_dd['semantic']['institutions'].update({ent_id: instance})
+                if "/Person" in type_:
+                    ent_id = "per" + (str(randint(10, 99)))
+                    instance['mention'] = extracted_concept
+                    instance['type'] = "authors"
+                    meta_dd['semantic']['authors'].update({ent_id: instance})
+
+        # for label in (instance['labels']):
+        #     if extracted_concept in label:
+        #         for type_ in instance['types']:
+        #             if "/Place" in type_:
+        #                 ent_id = "plc" + (str(randint(10, 99)))
+        #                 instance['mention'] = extracted_concept
+        #                 instance['type'] = "cities"
+        #                 meta_dd['semantic']['cities'].update({ent_id: instance})
+        #             if "Institution" in type_:
+        #                 ent_id = "ins" + (str(randint(10, 99)))
+        #                 instance['mention'] = extracted_concept
+        #                 instance['type'] = "institutions"
+        #                 meta_dd['semantic']['institutions'].update({ent_id: instance})
+        #             if "/Person" in type_:
+        #                 ent_id = "per" + (str(randint(10, 99)))
+        #                 instance['mention'] = extracted_concept
+        #                 instance['type'] = "authors"
+        #                 meta_dd['semantic']['authors'].update({ent_id: instance})
 
     return meta_dd
 
