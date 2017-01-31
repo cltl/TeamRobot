@@ -26,9 +26,11 @@ def load_json(text):
 
 def get_nouns(text):
     words = []
+    list_of_tokens = ['i','you','man','night']
     for word,tag in nltk.pos_tag(word_tokenize(text)):
-        if tag == 'NN':
-            words.append(word)
+        if word not in list_of_tokens:
+            if tag == 'NN':
+                words.append(word)
     return(words)
 
 def map_potential_concepts(words):
@@ -111,50 +113,30 @@ def query_hotlist_one(meta_dd, pcid, pot_con, timestamp):
 
 
 def query_hotlist_two(meta_dd, pcid, pot_con, timestamp, hl2):
-    extracted_concept = pot_con
-    given_hl2 = hl2
-    hotlist2 = given_hl2
-    pprint("Extracted concept: {}".format(extracted_concept))
+    hotlist2 = hl2
+    pprint("Extracted concept: {}".format(pot_con))
     for instance in hotlist2:
         name = instance['uri'].split('/')[-1]
-        name = name.replace('_', ' ').replace('-', ' ').lower()
-        if extracted_concept == name:
+        name = name.replace('_', ' ').replace('-', ' ').replace("'", ' ').lower()
+        name = name.split(' (')[0]
+        pprint(name)
+        if pot_con == name:
             for type_ in instance['types']:
                 if "/Place" in type_:
                     ent_id = "plc" + (str(randint(10, 99)))
-                    instance['mention'] = extracted_concept
+                    instance['mention'] = pot_con
                     instance['type'] = "cities"
                     meta_dd['semantic']['cities'].update({ent_id: instance})
                 if "Institution" in type_:
                     ent_id = "ins" + (str(randint(10, 99)))
-                    instance['mention'] = extracted_concept
+                    instance['mention'] = pot_con
                     instance['type'] = "institutions"
                     meta_dd['semantic']['institutions'].update({ent_id: instance})
                 if "/Person" in type_:
                     ent_id = "per" + (str(randint(10, 99)))
-                    instance['mention'] = extracted_concept
+                    instance['mention'] = pot_con
                     instance['type'] = "authors"
                     meta_dd['semantic']['authors'].update({ent_id: instance})
-
-        # for label in (instance['labels']):
-        #     if extracted_concept in label:
-        #         for type_ in instance['types']:
-        #             if "/Place" in type_:
-        #                 ent_id = "plc" + (str(randint(10, 99)))
-        #                 instance['mention'] = extracted_concept
-        #                 instance['type'] = "cities"
-        #                 meta_dd['semantic']['cities'].update({ent_id: instance})
-        #             if "Institution" in type_:
-        #                 ent_id = "ins" + (str(randint(10, 99)))
-        #                 instance['mention'] = extracted_concept
-        #                 instance['type'] = "institutions"
-        #                 meta_dd['semantic']['institutions'].update({ent_id: instance})
-        #             if "/Person" in type_:
-        #                 ent_id = "per" + (str(randint(10, 99)))
-        #                 instance['mention'] = extracted_concept
-        #                 instance['type'] = "authors"
-        #                 meta_dd['semantic']['authors'].update({ent_id: instance})
-
     return meta_dd
 
 def filter_definitive_concepts(concept, dictionary_of_concepts):
