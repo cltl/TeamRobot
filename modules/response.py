@@ -63,12 +63,13 @@ def generate_response(semantic, emotion, emoratio):
         if question_type is "authors" and emotion is "neutral":
             author = random.choice(list(semantic['authors'].values()))
             rand = random.random()
-            if "institution" in author and rand < 0.5:
-                question_text = "{} is affiliated with {}, isn't he?".format(author["mention"], author["institution"])
-                return question_text
-            else:
-                question_text = "{} has written {}, right?".format(author["mention"].title(), author["paper"])
-                return question_text
+            if "institution" in author:
+                if rand < 0.5:
+                    question_text = "{} is affiliated with {}, isn't he?".format(author["mention"], author["institution"])
+                    return question_text
+                else:
+                    question_text = "{} has written {}, right?".format(author["mention"].title(), author["paper"])
+                    return question_text
 
         question_entity = do_select_entity(semantic, question_type)
         responses = do_load_questions(question_type)

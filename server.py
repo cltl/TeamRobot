@@ -118,7 +118,6 @@ def query_hotlist_two(meta_dd, pcid, pot_con, timestamp, hl2):
     for instance in hotlist2:
         name = instance['uri'].split('/')[-1]
         name = name.replace('_', ' ').replace('-', ' ').lower()
-        pprint(name)
         if extracted_concept == name:
             for type_ in instance['types']:
                 if "/Place" in type_:
