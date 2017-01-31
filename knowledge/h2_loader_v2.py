@@ -59,7 +59,7 @@ for non_entity in non_ents:
 
 
 # In[18]:
-hotlist2 = list_selected_light_entities + dark_ents + list_non_entities
+hotlist2 = list_selected_light_entities + dark_ents
 
 
 # In[19]:
