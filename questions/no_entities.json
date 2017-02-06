@@ -1,10 +1,31 @@
 {
-    "responses": [
-        {
-            "question": "Nice weather today, isn't it"
-        },
-        {
-            "question": "How do you feel today"
-        }
-    ]
+    "responses": {
+        "neutral": [
+            {
+                "question": "What are your current goals for your work?"
+            },
+            {
+                "question": "Have you always wanted to do this?"
+            },
+            {
+                "question": "What is generally most misunderstood about your field?"
+            }
+        ],
+        "negative": [
+            {
+                "question": "What do you dislike about your work?"
+            },
+            {
+                "question": "What is your biggest concern for the future of your field?"
+            }
+        ],
+        "positive": [
+            {
+                "question": "What motivated you to work in this field?"
+            },
+            {
+                "question": "Do you have any advice for others who might want to enter your field?"
+            }
+        ]
+    }
 }

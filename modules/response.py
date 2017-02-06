@@ -20,10 +20,10 @@ def do_load_questions(question_type):
     return json_data
 
 
-def select_nonsense_question():
+def select_nonsense_question(emotion):
     with open("questions/no_entities.json") as json_file:
         json_data = json.load(json_file)
-        question = random.choice(json_data['responses'])['question']
+        question = random.choice(json_data['responses'][emotion])['question']
     return question
 
 def check_confidence_values():
@@ -79,6 +79,6 @@ def generate_response(semantic, emotion, emoratio):
 
     #no entities found
     except IndexError:
-        question_text = select_nonsense_question()
+        question_text = select_nonsense_question(emotion)
 
     return(question_text)

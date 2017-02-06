@@ -24,6 +24,13 @@ angular.module('wbApp')
     mySocket.on('connect', function() {
       $scope.connection.status = 'Connected';
 
+      var message = {};
+      message.user = 'Robin the Robot';
+      message.time = 'Now';
+      message.text = 'Hi there! Nice to meet you!';
+      message.server = true;
+      $scope.messages.push(message);
+
       //Username system
       /*var message = {};
       message.user = 'Philip the Robot';
@@ -43,8 +50,9 @@ angular.module('wbApp')
 
     mySocket.on('response', function (data) {
       var message = {};
-      message.user = 'Philip the Robot';
-      message.time = 'Now';
+      message.user = 'Robin the Robot';
+      var date = new Date;
+      message.time = date.getHours()+':'+date.getMinutes();
       message.text = data;
       message.server = true;
       $scope.messages.push(message);
@@ -56,7 +64,8 @@ angular.module('wbApp')
 
         var message = {};
         message.user = 'Me';
-        message.time = 'Now';
+        var date = new Date;
+        message.time = date.getHours()+':'+date.getMinutes();
         message.text = this.inputText;
         message.server = false;
         $scope.messages.push(message);
@@ -66,7 +75,7 @@ angular.module('wbApp')
 
     $scope.sayHello = function() {
       var message = {};
-      message.user = 'Philip the Robot';
+      message.user = 'Robin the Robot';
       message.time = 'Now';
       message.text = 'Nice to meet you ' + this.username + '! You can tell me everything.';
       message.server = true;
