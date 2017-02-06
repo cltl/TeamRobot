@@ -146,9 +146,7 @@ def query_hotlist_two(meta_dd, pcid, pot_con, timestamp, hl2):
         entity_name = remove_special_chars(entity_name)
         names = entity_name.split()
         names.append(entity_name)
-        'georg hegel'
 
-        [georg, wilhelm, friedrich, hegel, georg wilhelm friedrich hegel]
         for name in names:
             if strict_matching(name, pot_con):
                 result = True;
