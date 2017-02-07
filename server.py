@@ -24,25 +24,18 @@ def load_json(text):
         meta_dd["metadata"]["input_text"] = text
     return metadata_ep_sc, meta_dd
 
-def get_nouns(text):
+def get_terms(text):
     single_words = []
     combined_words = []
     prev_word = None
     grab_next = False
 
-    list_of_tokens = ['i','you','man','night']
-    for word,tag in nltk.pos_tag(word_tokenize(text)):
-        if word not in list_of_tokens:
-            if grab_next:
-                combined_words.append(prev_word + ' ' + word)
-                grab_next = False
-            if tag == 'NN' or tag == 'NNS':
-                if prev_word:
-                    combined_words.append(prev_word + ' ' + word)
+    words = text.split()
+    for word in words:
+        if prev_word:
+            combined_words.append(prev_word + ' ' + word)
 
-                single_words.append(word)
-                grab_next = True
-
+        single_words.append(word)
         prev_word = word
 
     pprint(single_words)
@@ -193,7 +186,7 @@ def annotate_and_respond(text):
 
     timestamp_log = time.strftime("D%y%m%d_T%H%M%S")
     metadata, meta_dd = load_json(text)
-    single_nouns, combined_nouns = get_nouns(text)
+    single_nouns, combined_nouns = get_terms(text)
     mapped_single_nouns = map_potential_concepts(single_nouns)
     mapped_combined_nouns = map_potential_concepts(combined_nouns)
     emotion_processor(text,meta_dd)
