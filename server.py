@@ -194,6 +194,7 @@ def annotate_and_respond(text):
 
     pprint(text)
 
+    hl2_found = None
     for pcid, potential_concept in mapped_combined_nouns.items():
         conceptdict1 = query_hotlist_one(meta_dd, pcid, potential_concept, timestamp_log, hotlist1_dict)
         filter_definitive_concepts(conceptdict1, dictionary_of_concepts)

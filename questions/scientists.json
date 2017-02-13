@@ -1,20 +1,23 @@
 {
+    "type": "Scientists",
     "responses": {
-        "negative": [
-            {
-                "question": "New response with <type>"
-            }
-        ],
         "positive": [
             {
-                "question": "New response with <type>"
+                "question": "<type> the scientist? What do you like most about <type>'s work?"
+            },
+            {
+                "question": "<type> is very important in the field, right?"
+            }
+        ],
+        "negative": [
+            {
+                "question": "Is there something about <type>'s ideas you disagree with?"
             }
         ],
         "neutral": [
             {
-                "question": "New response with <type>"
+                "question": "Could you tell me more about <type>'s work?"
             }
         ]
-    },
-    "type": "Scientists"
+    }
 }
