@@ -178,6 +178,7 @@ hl2 = h2_loader_v2.hotlist2
 hotlist1 = open("knowledge/hotlist_1.json", "r+", encoding='utf-8')
 hotlist1_dict = json.load(hotlist1)
 
+
 #'---------PIPELINE-RUNNING--------------------------------------------------------------------'
 
 def annotate_and_respond(text):
@@ -189,9 +190,10 @@ def annotate_and_respond(text):
     single_nouns, combined_nouns = get_terms(text)
     mapped_single_nouns = map_potential_concepts(single_nouns)
     mapped_combined_nouns = map_potential_concepts(combined_nouns)
+    print(text, meta_dd)
     emotion_processor(text,meta_dd)
     dictionary_of_concepts = {}
-
+	
    # pprint(text)
 
     for pcid, potential_concept in mapped_combined_nouns.items():

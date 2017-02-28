@@ -12,8 +12,30 @@ import json
 import subprocess
 import ast
 
-#with open('json_schema/metadata.json') as data_file:
-#	data = json.load(data_file)
+# Quick hack to get the topic tagger in there 
+def annotate_topic(text):
+	text_topic = {}
+	tokens = text.lower().split(" ")
+	for token in tokens:
+		for topic in topics:
+			if token in topics[topic]:
+				if topic in text_topic:
+					text_topic[topic] = text_topic[topic] + 1 
+				else:
+					text_topic[topic] = 1 
+	return text_topic 
+	
+# Simple topic tagger 
+topics = {}
+with open('topic_lexicon.tsv', 'r') as f:
+	for line in f:
+		line = line.rstrip()
+		elems = line.split("\t")
+		if elems[1] in topics:
+			topics[elems[1]][elems[0]] = 1
+		else:
+			topics[elems[1]] = {}
+			topics[elems[1]][elems[0]] = 1
 
 while True:
 	text = subprocess.Popen("get_ASR_text", shell=True, stdout=subprocess.PIPE).stdout.read().decode("utf-8").split("\n")
@@ -28,12 +50,20 @@ while True:
 	json_dict['input']['input_text']['text'] = json_dict['input']['input_text']['text'].replace("'","-=AP=-")
 	print(input)
 	response = ""
+	topic_res = "" 
 	try:
 		response = server.annotate_and_respond(input)
 	except:
 		response = "I am sorry, I do not understand"
+	try:
+		text_topics = annotate_topic(test)
+		res = list(sorted(text_topics, key=text_topics.__getitem__, reverse=True))
+		topic_res = res[0]
+	except:
+		topic_res = "AI"
 	response = response.replace("'","-=AP=-")	
 	json_dict['response'] = response 
+	json_dict['topic_response'] = "What is " + topic_res + "?"
 	output = json.dumps(json_dict)
 	print(output)
 	#subprocess.Popen(["echo", output, "|", "send_VU_processed"], stdout=subprocess.PIPE)
