@@ -51,12 +51,15 @@ def map_potential_concepts(words):
     return potential_concepts
 
 def emotion_processor(text, meta_dd):
-    processor = subprocess.Popen(['echo {} | ./emotionStream.sh'.format(text)], stdout=subprocess.PIPE, shell=True)
-    processor_output, _ = processor.communicate()
-    decoded_output = processor_output.decode()
-    emotions_dict = json.loads(decoded_output)['emotion'][0]
-    meta_dd['emotions']['detected_emotion'] = emotions_dict
-    return emotions_dict
+	text = text.format(text)
+	command = "echo '" + text + "' | ./emotionStream.sh" 
+	processor = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
+	processor_output, _ = processor.communicate()
+	decoded_output = processor_output.decode()
+	emotions_dict = json.loads(decoded_output)['emotion'][0]
+	meta_dd['emotions']['detected_emotion'] = emotions_dict
+	return emotions_dict
+# processor = subprocess.Popen(['echo {} | ./emotionStream.sh'.format(text)], stdout=subprocess.PIPE, shell=True)
 
 def create_dict_per_concept(type_,conceptmention, timestamp):
     concept_dict = {}
@@ -190,7 +193,7 @@ def annotate_and_respond(text):
     single_nouns, combined_nouns = get_terms(text)
     mapped_single_nouns = map_potential_concepts(single_nouns)
     mapped_combined_nouns = map_potential_concepts(combined_nouns)
-    print(text, meta_dd)
+   # print(text, meta_dd)
     emotion_processor(text,meta_dd)
     dictionary_of_concepts = {}
 	

@@ -34,6 +34,3 @@ def annotate_topic(text):
 text_topics = annotate_topic(test)
 res = list(sorted(text_topics, key=text_topics.__getitem__, reverse=True))
 print(res[0])
-
-for topic in text_topics:
-	print(topic, text_topics[topic])
