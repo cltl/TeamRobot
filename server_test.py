@@ -147,13 +147,10 @@ def annotate_and_respond(text):
 
     timestamp_log = time.strftime("D%y%m%d_T%H%M%S")
     metadata, meta_dd = load_json(text)
-<<<<<<< HEAD
     single_nouns, combined_nouns = get_terms(text)
     mapped_single_nouns = map_potential_concepts(single_nouns)
     mapped_combined_nouns = map_potential_concepts(combined_nouns)
    # print(text, meta_dd)
-=======
->>>>>>> 7a59cc43f0570547f0a88fc00101501e2ffb74f4
     emotion_processor(text,meta_dd)
 
     conversation_log.update({metadata.strip('.json') + "_" + timestamp_log: meta_dd})
