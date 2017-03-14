@@ -1,13 +1,12 @@
 import json
 import time
 import subprocess
-from random import randint
+
 from modules import emotion as emotion_mod
-from modules import response as response_mod
-import nltk
-from nltk import word_tokenize
-from knowledge import h2_loader_v2
-from pprint import pprint
+from modules import response_new as response_mod
+
+from nltk.corpus import stopwords
+stopword_list = stopwords.words('english')
 
 #'---------FUNCTIONS-------------------------------------------------------------------------------'
 
@@ -24,207 +23,144 @@ def load_json(text):
         meta_dd["metadata"]["input_text"] = text
     return metadata_ep_sc, meta_dd
 
-def get_terms(text):
-    single_words = []
-    combined_words = []
-    prev_word = None
-    grab_next = False
-
-    words = text.split()
-    for word in words:
-        if prev_word:
-            combined_words.append(prev_word + ' ' + word)
-
-        single_words.append(word)
-        prev_word = word
-
-   # pprint(single_words)
-   # pprint(combined_words)
-    return single_words, combined_words
-
-def map_potential_concepts(words):
-    potential_concepts = {}
-    concept_id = 1
-    for potential_concept in words:
-        potential_concepts['pcid'+str(concept_id)] = potential_concept
-        concept_id += 1
-    return potential_concepts
-
 def emotion_processor(text, meta_dd):
-	text = text.format(text)
-	command = "echo '" + text + "' | ./emotionStream.sh" 
-	processor = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
-	processor_output, _ = processor.communicate()
-	decoded_output = processor_output.decode()
-	emotions_dict = json.loads(decoded_output)['emotion'][0]
-	meta_dd['emotions']['detected_emotion'] = emotions_dict
-	return emotions_dict
-# processor = subprocess.Popen(['echo {} | ./emotionStream.sh'.format(text)], stdout=subprocess.PIPE, shell=True)
+    processor = subprocess.Popen(['echo {} | ./emotionStream.sh'.format(text)], stdout=subprocess.PIPE, shell=True)
+    processor_output, _ = processor.communicate()
+    decoded_output = processor_output.decode()
+    emotions_dict = json.loads(decoded_output)['emotion'][0]
+    meta_dd['emotions']['detected_emotion'] = emotions_dict
+    return emotions_dict
 
-def create_dict_per_concept(type_,conceptmention, timestamp):
-    concept_dict = {}
-    if type_ == "Author":
-        data = conceptmention.split("<")
-        conceptmention = data[0]
-        data = data[1].split(">")
-        concept_dict['paper'] = data[0]
-        if data[1] != 'none':
-            concept_dict['institution'] = data[1]
-    concept_dict['mention'] = conceptmention
-    concept_dict['types'] = type_
-    concept_dict['dbp_uri'] = ''
-    concept_dict['timestamp'] = timestamp
-    return concept_dict
+def create_concept_dictionaries(list_of_json_files):
+    list_of_dict = []
+    for json_file in list_of_json_files:
+        jsonfile = open(json_file)
+        json_dict = json.load(jsonfile)
+        list_of_dict.append(json_dict)
+    return list_of_dict
 
-def remove_special_chars(text):
-    result = text.replace('_', ' ').replace('-', ' ').replace("'", '').replace('+', ' ').lower()
-    result = result.split(' (')[0]
-    return result
+def concept_indexer(source):
+    target_index = {}
+    for dict_per_category in source:
+        for instance in dict_per_category['instance']:
+            concept_dict = {}
+            instance_type = instance['instance']
+            name = instance['uri'].split("/")[-1].lower().replace("_"," ").replace("+"," ")
+            labels = []
+            for label_caps in instance['labels']:
+                labels.append(label_caps.lower())
+            types = []
+            for type_ in instance['types']:
+                types.append(type_.split("/")[-1])
+            concept_dict.update({"types":types})
+            concept_dict.update({"labels":labels})
+            target_index[name] = concept_dict
+    return target_index
 
-def strict_matching(value1, value2):
-    return value1 == value2
+def term_idf_indexer(list_of_idf_files):
+    for idf_file in list_of_idf_files:
+        idf_score_data = open(idf_file)
+        term_idf_index = {}
+        for line in idf_score_data.readlines():
+            term_dict = {}
+            term,idf_score = line.strip("\n").split("\t")
+            #term_dict["term"] = term
+            term_dict["idfscore"] = idf_score
+            term_dict["category"] = idf_file
+            term_idf_index[term] = term_dict
+        return term_idf_index
 
-def query_hotlist_one(meta_dd, pcid, pot_con, timestamp, hotlist1_dict):
+def input_indexer(input_text):
+    input_index = {}
+    for term in input_text.split(" "):
+        if term not in stopwords.words('english'):
+            input_index[term] = input_text.split(" ").count(term)
+    return input_index
 
-    concept = {}
-    for _,paper in hotlist1_dict.items():
-        for _, paper in paper.items():
-            prvn = paper['authors']
-            if len(prvn) == 2:
-                name_val = remove_special_chars(str(prvn['name']))
-                if strict_matching(pot_con, name_val):
-                    try:
-                        inst_val = remove_special_chars(str(prvn['institution']))
-                    except KeyError:
-                        inst_val = 'none'
-                    paper_name = str(paper['title'])
-                    name_val += "<" + paper_name + ">" + inst_val
+def match_terms(input_index, term_idf_index):
+    matched_terms_dict = {}
+    for term_input, tf in input_index.items():
+        for term_index, attrib in term_idf_index.items():
+            if term_input == term_index:
+                matched_term = {}
+                matched_terms_dict[term_input] = matched_term
+                tf_calc, idf_calc = float(tf), float(attrib['idfscore'])
+                tf_idf = tf_calc * idf_calc
+                matched_term["tf-idf"] = tf_idf
+    return matched_terms_dict
 
-                    concept.update({'Author' : name_val})
-                inst_val = remove_special_chars(str(prvn['institution']))
-                if strict_matching(pot_con, inst_val):
-                    concept.update({'Institution' : (str(prvn['institution']))})
-            if len(prvn) == 1:
-                if 'name' in prvn.keys():
-                    name_val = remove_special_chars(str(prvn['name']))
-                    if strict_matching(pot_con, name_val):
-                        try:
-                            inst_val = remove_special_chars(str(prvn['institution']))
-                        except KeyError:
-                            inst_val = 'none'
-                        paper_name = str(paper['title'])
-                        name_val += "<" + paper_name + ">" + inst_val
+def xpath_get(mydict, path):
+    elem = mydict
+    try:
+        for x in path.strip("/").split("/"):
+            elem = elem.get(x)
+    except:
+        pass
+    return elem
 
-                        concept.update({'Author': name_val})
-                if 'institution' in prvn.keys():
-                    inst_val = remove_special_chars(str(prvn['institution']))
-                    if strict_matching(pot_con, inst_val):
-                        concept.update({'Institution' : (str(prvn['institution']))})
+def define_respons_concept(matched_terms_dic, concept_index):
+    tfidf_max = 0
+    interesting_concept = ''
+    for k,v in matched_terms_dic.items():
+        tfidf = v['tf-idf']
+        if tfidf > tfidf_max:
+            tfidf_max = tfidf
+            interesting_concept = k
 
-    concept_dictionary = {}
+    types = []
+    typesdict = {}
+    for concept,attributes in concept_index.items():
+        for label in attributes['labels']:
+            if interesting_concept == label:
+                for type_ in attributes['types']:
+                    types.append(type_)
+    for type_ in types:
+        typesdict[type_] = types.count(type_)
+    interesting_type = max(typesdict, key=lambda i: [1])
 
-    for type_,concept_sf in concept.items():
-        concept_dictionary = create_dict_per_concept(type_,concept_sf, timestamp)
-        ent_id = "ent"+str(randint(10,99))
-        if type_ == "Author":
-            meta_dd['semantic']['authors'].update({ent_id:concept_dictionary})
-        if type_ == "Institution":
-            meta_dd['semantic']['institutions'].update({ent_id:concept_dictionary})
+    type_max = 0
+    for k,v in typesdict.items():
+        if k == 'Agent':
+            continue
+        if v > type_max:
+            type_max = v
+            interesting_type = k
+    return interesting_concept, interesting_type
 
-        return pot_con, concept_dictionary
-
-
-def query_hotlist_two(meta_dd, pcid, pot_con, timestamp, hl2):
-    hotlist2 = hl2
-    result = False;
-    for instance in hotlist2:
-        entity_name = instance['uri'].split('/')[-1]
-        entity_name = remove_special_chars(entity_name)
-        names = entity_name.split()
-        names.append(entity_name)
-
-        for name in names:
-            if strict_matching(name, pot_con):
-                result = True;
-                for type_ in instance['types']:
-                    if "/Place" in type_:
-                        ent_id = "plc" + (str(randint(10, 99)))
-                        instance['mention'] = entity_name
-                        instance['type'] = "cities"
-                        meta_dd['semantic']['cities'].update({ent_id: instance})
-                    if "Institution" in type_:
-                        ent_id = "ins" + (str(randint(10, 99)))
-                        instance['mention'] = entity_name
-                        instance['type'] = "institutions"
-                        meta_dd['semantic']['institutions'].update({ent_id: instance})
-                    if "/Person" in type_:
-                        ent_id = "per" + (str(randint(10, 99)))
-                        instance['mention'] = entity_name
-                        instance['type'] = "authors"
-                        meta_dd['semantic']['authors'].update({ent_id: instance})
-    return meta_dd, result
-
-def filter_definitive_concepts(concept, dictionary_of_concepts):
-    concept_code = "defcon"+str(randint(10,99))
-    dictionary_of_concepts.update({concept_code:concept})
-
-def update_hotlist_zero(concept_code, matched_concept, hotlist_0_dict):
-    if matched_concept != None:
-        hotlist_0_dict.update({concept_code : matched_concept})
-    return hotlist_0_dict
 
 #'---------LOADED-DICTIONARIES-------------------------------------------------------------------'
 
 conversation_log = {}
-hotlist_0_dict = {}
-hl2 = h2_loader_v2.hotlist2
-hotlist1 = open("knowledge/hotlist_1.json", "r+", encoding='utf-8')
-hotlist1_dict = json.load(hotlist1)
+
+list_of_idf_files = "match_module/dbpedia_res/idf_light.tsv", "match_module/dbpedia_res/idf_dark.tsv", "match_module/dbpedia_res/idf_non.tsv"
+list_of_json_files = ["match_module/dbpedia_res/light.json", "match_module/dbpedia_res/dark.json", "match_module/dbpedia_res/non.json"]
 
 
 #'---------PIPELINE-RUNNING--------------------------------------------------------------------'
 
 def annotate_and_respond(text):
     global conversation_log
-    global hotlist_0_dict
 
     timestamp_log = time.strftime("D%y%m%d_T%H%M%S")
     metadata, meta_dd = load_json(text)
-    single_nouns, combined_nouns = get_terms(text)
-    mapped_single_nouns = map_potential_concepts(single_nouns)
-    mapped_combined_nouns = map_potential_concepts(combined_nouns)
-   # print(text, meta_dd)
     emotion_processor(text,meta_dd)
-    dictionary_of_concepts = {}
-	
-   # pprint(text)
-
-    for pcid, potential_concept in mapped_combined_nouns.items():
-        conceptdict1 = query_hotlist_one(meta_dd, pcid, potential_concept, timestamp_log, hotlist1_dict)
-        filter_definitive_concepts(conceptdict1, dictionary_of_concepts)
-        conceptdict2, hl2_found = query_hotlist_two(meta_dd, pcid, potential_concept, timestamp_log, hl2)
-        filter_definitive_concepts(conceptdict2, dictionary_of_concepts)
-
-    if not hl2_found:
-        for pcid, potential_concept in mapped_single_nouns.items():
-            conceptdict1 = query_hotlist_one(meta_dd, pcid, potential_concept, timestamp_log, hotlist1_dict)
-            filter_definitive_concepts(conceptdict1, dictionary_of_concepts)
-            conceptdict2 = query_hotlist_two(meta_dd, pcid, potential_concept, timestamp_log, hl2)
-            filter_definitive_concepts(conceptdict2, dictionary_of_concepts)
-
-
-    for conc_id, concept in dictionary_of_concepts.items():
-        hotlist_0_dict = update_hotlist_zero(conc_id, concept, hotlist_0_dict)
-
-    with open('knowledge/hotlist_0.json', 'w+') as hotlist_zero:
-        hotlist_zero.write(json.dumps(hotlist_0_dict, sort_keys=True, indent=4))
 
     conversation_log.update({metadata.strip('.json') + "_" + timestamp_log: meta_dd})
+
+    list_of_dict = create_concept_dictionaries(list_of_json_files)
+    concept_index = concept_indexer(list_of_dict)
+    term_idf_index = term_idf_indexer(list_of_idf_files)
+    input_index = input_indexer(text)
+    matched_terms_dic = match_terms(input_index, term_idf_index)
+    try:
+        concept, category_type = define_respons_concept(matched_terms_dic, concept_index)
+    except:
+        concept, category_type = None, None
+    print(concept, category_type)
 
     with open('memory/e01_s01_inproces.json', 'w+') as scene:
         scene.write(json.dumps(conversation_log, sort_keys=True, indent=4))
 
     emotion, emoratio = emotion_mod.emotion_ratio(meta_dd['emotions']['detected_emotion'], len(text.split()))
-   # print ("Emotion found: {} with an emotion ratio of {}".format(emotion, emoratio))
-    generated_response = response_mod.generate_response(meta_dd['semantic'], emotion, emoratio)
+    generated_response = response_mod.generate_response(concept, category_type, emotion, emoratio)
     return generated_response
