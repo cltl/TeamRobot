@@ -152,15 +152,17 @@ def annotate_and_respond(text):
     term_idf_index = term_idf_indexer(list_of_idf_files)
     input_index = input_indexer(text)
     matched_terms_dic = match_terms(input_index, term_idf_index)
+    print("Matched terms: ",matched_terms_dic) 
     try:
         concept, category_type = define_respons_concept(matched_terms_dic, concept_index)
     except:
         concept, category_type = None, None
-    print(concept, category_type)
+    print("Concept: ", concept, "\nCategory type: ", category_type)
 
     with open('memory/e01_s01_inproces.json', 'w+') as scene:
         scene.write(json.dumps(conversation_log, sort_keys=True, indent=4))
 
     emotion, emoratio = emotion_mod.emotion_ratio(meta_dd['emotions']['detected_emotion'], len(text.split()))
+    print("Emotions: ", emotion, emoratio)
     generated_response = response_mod.generate_response(concept, category_type, emotion, emoratio)
     return generated_response

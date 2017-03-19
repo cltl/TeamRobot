@@ -45,21 +45,22 @@ with open(sys.argv[1], 'r') as file:
 		input = input.replace("'s", " is")
 		input = input.replace("\\", " ")
 		input = input.replace("'", " ")
+		print("INPUT: ", input)
 		response = ""
 		topic_res = "" 
 		try:
 			response = server.annotate_and_respond(input)
 		except:
-			response = "I am sorry, I do not understand"
+			response = "No fitting response found"
 		try:
-			text_topics = annotate_topic(test)
+			text_topics = annotate_topic(input)
 			res = list(sorted(text_topics, key=text_topics.__getitem__, reverse=True))
 			topic_res = res[0]
 		except:
 			topic_res = "NO TOPIC FOUND"
 		response = response.replace("'","-=AP=-")	
 		topic_response = "What is " + topic_res + "?"
-		print("INPUT: ",input, "\n", "CONCEPT: ", response, "\n", "TOPIC: ", topic_response) 
+		print("CONCEPT_response: ", response, "\n", "TOPIC_Marieke: ", topic_response, "\n\n") 
 		
 
 
