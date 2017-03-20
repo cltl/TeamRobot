@@ -55,11 +55,11 @@ with open(sys.argv[1], 'r') as file:
 		try:
 			text_topics = annotate_topic(input)
 			res = list(sorted(text_topics, key=text_topics.__getitem__, reverse=True))
-			topic_res = res[0]
+			topic_res = "What is " + res[0] + "?"
 		except:
 			topic_res = "NO TOPIC FOUND"
 		response = response.replace("'","-=AP=-")	
-		topic_response = "What is " + topic_res + "?"
+		topic_response =  topic_res
 		print("CONCEPT_response: ", response, "\n", "TOPIC_Marieke: ", topic_response, "\n\n") 
 		
 
