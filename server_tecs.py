@@ -1,9 +1,9 @@
 import json
 import time
-import subprocess
 
 from modules import emotion as emotion_mod
 from modules import response_new as response_mod
+from pytagger import doTag
 
 from nltk.corpus import stopwords
 stopword_list = stopwords.words('english')
@@ -24,12 +24,9 @@ def load_json(text):
     return metadata_ep_sc, meta_dd
 
 def emotion_processor(text, meta_dd):
-    processor = subprocess.Popen(['echo {} | ./emotionStream.sh'.format(text)], stdout=subprocess.PIPE, shell=True)
-    processor_output, _ = processor.communicate()
-    decoded_output = processor_output.decode()
-    emotions_dict = json.loads(decoded_output)['emotion'][0]
-    meta_dd['emotions']['detected_emotion'] = emotions_dict
-    return emotions_dict
+    tags = doTag(text)
+    meta_dd['emotions']['detected_emotion'] = tags
+    return tags
 
 def create_concept_dictionaries(list_of_json_files):
     list_of_dict = []
@@ -152,7 +149,7 @@ def annotate_and_respond(text):
     term_idf_index = term_idf_indexer(list_of_idf_files)
     input_index = input_indexer(text)
     matched_terms_dic = match_terms(input_index, term_idf_index)
-    print("Matched terms: ",matched_terms_dic) 
+    print("Matched terms: ",matched_terms_dic)
     try:
         concept, category_type = define_respons_concept(matched_terms_dic, concept_index)
     except:

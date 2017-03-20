@@ -1,6 +1,6 @@
-[submodule "EmotionTagger"]
-	path = EmotionTagger
-	url = https://github.com/cltl/EmotionTagger
 [submodule "Hotlist-Scholar/CERMINE"]
 	path = Hotlist-Scholar/CERMINE
 	url = https://github.com/CeON/CERMINE
+[submodule "pytagger"]
+	path = pytagger
+	url = https://github.com/Jasperrr91/pytagger
