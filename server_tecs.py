@@ -2,7 +2,7 @@ import json
 import time
 
 from modules import emotion as emotion_mod
-from modules import response_new as response_mod
+from modules import response as response_mod
 from pytagger import doTag
 
 from nltk.corpus import stopwords

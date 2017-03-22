@@ -1,17 +1,14 @@
 import random
 import json
 
-def select_question_topic(semantic):
-    # TODO: put org/people/places within another key in semantic so we can just loop over them
-    subjects = {}
-    if len(semantic['authors']):
-        subjects['authors'] = len(semantic['authors'])
-    if len(semantic['cities']):
-        subjects['cities'] = len(semantic['cities'])
-    if len(semantic['institutions']):
-        subjects['institutions'] = len(semantic['institutions'])
+def select_question_topic(category):
+    accepted = {'Person': 'authors', 'City': 'cities', 'Institution': 'institutions'}
 
-    question_topic = random.choice(list(subjects.keys()))
+    try:
+        question_topic = accepted[category]
+    except:
+        question_topic = None
+
     return question_topic
 
 def do_load_questions(question_type):
@@ -26,13 +23,6 @@ def select_nonsense_question(emotion):
         question = random.choice(json_data['responses'][emotion])['question']
     return question
 
-def check_confidence_values():
-    return NotImplemented
-
-def do_select_entity(semantic, entity_type):
-    values = list(semantic[entity_type].values())
-    return random.choice(values)
-
 def select_response(responses, emotion):
     if emotion in responses:
         response_data = responses[emotion]
@@ -42,11 +32,9 @@ def select_response(responses, emotion):
     return random.choice(response_data)["question"]
 
 def format_response(response, entity):
-    result = response.replace("<type>", entity["mention"])
-    result += "?"
-    return result
+    return response.replace("<type>", entity)
 
-def generate_response(semantic, emotion, emoratio):
+def generate_response(concept, category, emotion, emoratio):
     question_text = "Hmm, I did not quite get that"
     emotion = emotion.lower()
 
@@ -57,25 +45,20 @@ def generate_response(semantic, emotion, emoratio):
     if emoratio < emotion_treshold:
         emotion = "neutral"
 
-    try:
-        question_type = select_question_topic(semantic)
-        #Snelle hardcode, hele response selectie +json structuur moet omgebouwd worden
-        if question_type is "authors" and emotion is "neutral":
-            author = random.choice(list(semantic['authors'].values()))
-            rand = random.random()
-            if "institution" in author:
-                if rand < 0.5:
-                    question_text = "{} is affiliated with {}, isn't he?".format(author["mention"], author["institution"])
-                    return question_text
-                else:
-                    question_text = "{} has written {}, right?".format(author["mention"].title(), author["paper"])
-                    return question_text
+    if concept is None:
+        question_text = select_nonsense_question(emotion)
+        return question_text
 
-        question_entity = do_select_entity(semantic, question_type)
+    try:
+        question_type = select_question_topic(category)
+        if question_type is None:
+            question_text = select_nonsense_question(emotion)
+            return question_text
+
         responses = do_load_questions(question_type)
         response = select_response(responses, emotion)
 
-        question_text = format_response(response, question_entity)
+        question_text = format_response(response, concept)
 
     #no entities found
     except IndexError:
