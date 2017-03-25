@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Conversation Log</title>
+</head>
+<body>
+<p>Found {{ user_count }} people who talked to the bot:</p>
+<ul>
+    {% for user in users %}
+    <li><p><a href="/logs/{{ user.0 }}">{{ user.0 }}</a></p></li>
+    {% endfor %}
+</ul>
+</body>
+</html>

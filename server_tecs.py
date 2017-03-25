@@ -3,6 +3,7 @@ import time
 
 from modules import emotion as emotion_mod
 from modules import response as response_mod
+from modules import matcher
 from pytagger import doTag
 
 from nltk.corpus import stopwords
@@ -24,7 +25,9 @@ def load_json(text):
     return metadata_ep_sc, meta_dd
 
 def emotion_processor(text, meta_dd):
+    print('Emotion text: {}'.format(text));
     tags = doTag(text)
+    print('Emotion tags: {}'.format(tags));
     meta_dd['emotions']['detected_emotion'] = tags
     return tags
 
@@ -137,6 +140,7 @@ list_of_json_files = ["match_module/dbpedia_res/light.json", "match_module/dbped
 
 def annotate_and_respond(text):
     global conversation_log
+    response = {}
 
     timestamp_log = time.strftime("D%y%m%d_T%H%M%S")
     metadata, meta_dd = load_json(text)
@@ -144,22 +148,56 @@ def annotate_and_respond(text):
 
     conversation_log.update({metadata.strip('.json') + "_" + timestamp_log: meta_dd})
 
-    list_of_dict = create_concept_dictionaries(list_of_json_files)
-    concept_index = concept_indexer(list_of_dict)
-    term_idf_index = term_idf_indexer(list_of_idf_files)
-    input_index = input_indexer(text)
-    matched_terms_dic = match_terms(input_index, term_idf_index)
-    print("Matched terms: ",matched_terms_dic)
-    try:
-        concept, category_type = define_respons_concept(matched_terms_dic, concept_index)
-    except:
-        concept, category_type = None, None
-    print("Concept: ", concept, "\nCategory type: ", category_type)
+    match = matcher.match_text(text)
+
+    if match:
+        concept = match['winner']
+
+        for type in match['types']:
+            type = type.split('/')[-1]
+
+            # Fix to include more matches in the results
+            if type == 'Country':
+                type = 'City'
+            if type == 'Location':
+                type = 'City'
+            if type == 'Place':
+                type = 'City'
+            if type == 'City':
+                # suitable type found
+                break
+
+            if type == 'Agent':
+                type = 'Person'
+            if type == 'Scientist':
+                type = 'Person'
+            if type == 'Person':
+                # suitable type found
+                break
+
+            if type == 'College':
+                type = 'Institution'
+            if type == 'EducationalInstitution':
+                type = 'Institution'
+            if type == 'Organisation':
+                type = 'Institution'
+            if type == 'Institution':
+                #suitable type found
+                break
+        category_type = type
 
     with open('memory/e01_s01_inproces.json', 'w+') as scene:
         scene.write(json.dumps(conversation_log, sort_keys=True, indent=4))
 
     emotion, emoratio = emotion_mod.emotion_ratio(meta_dd['emotions']['detected_emotion'], len(text.split()))
     print("Emotions: ", emotion, emoratio)
-    generated_response = response_mod.generate_response(concept, category_type, emotion, emoratio)
-    return generated_response
+
+    response['emotion'] = response_mod.generate_response(emotion=emotion, emoratio=emoratio)
+    if match:
+        response['concept'] = response_mod.generate_response(concept=concept, category=category_type)
+        response['mixed'] = response_mod.generate_response(concept=concept, category=category_type, emotion=emotion, emoratio=emoratio)
+    else:
+        response['concept'] = 'No concept has been detected in the input text.'
+        response['mixed'] = 'No concept has been detected in the input text.'
+
+    return response

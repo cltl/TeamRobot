@@ -1,0 +1,38 @@
+<p class="go-back"><a href="#!/responses">Go Back</a></p>
+<div class="code-container">
+  <div class="spacer-top"></div>
+  <p class="type">Type: <strong>{{entity_type}}</strong></p>
+  <p class="box-text">Positive Emotions</p>
+  <pre>
+    <div ng-repeat="response in positives" ng-controller="EditResponseCtrl">
+      <p ng-show="!response.edit" ng-click="response.edit = !response.edit" ng-bind-html="response.styled"></p>
+      <p ng-show="response.edit"><input focus-on="edit-response"  class="edit-response" ng-blur="updateResponse()" type="text" ng-model="response.text"></p>
+    </div>
+  </pre>
+  <button class="add-response" ng-click="addResponse(positives)">Add Response</button>
+  <button class="remove-response" ng-click="removeResponse(positives)">Remove Last Response</button>
+
+  <div class="spacer"></div>
+  <p class="box-text">Neutral Emotions</p>
+  <pre>
+    <div ng-repeat="response in neutrals" ng-controller="EditResponseCtrl">
+      <p ng-show="!response.edit" ng-click="response.edit = !response.edit" ng-bind-html="response.styled"></p>
+      <p ng-show="response.edit"><input focus-on="edit-response"  class="edit-response" ng-blur="updateResponse()" type="text" ng-model="response.text"></p>
+    </div>
+  </pre>
+  <button class="add-response" ng-click="addResponse(neutrals)">Add Response</button>
+  <button class="remove-response" ng-click="removeResponse(neutrals)">Remove Last Response</button>
+
+  <div class="spacer"></div>
+  <p class="box-text">Negative Emotions</p>
+  <pre>
+    <div ng-repeat="response in negatives" ng-controller="EditResponseCtrl">
+      <p ng-show="!response.edit" ng-click="response.edit = !response.edit" ng-bind-html="response.styled"></p>
+      <p ng-show="response.edit"><input focus-on="edit-response"  class="edit-response" ng-blur="updateResponse()" type="text" ng-model="response.text"></p>
+    </div>
+  </pre>
+  <button class="add-response" ng-click="addResponse(negatives)">Add Response</button>
+  <button class="remove-response" ng-click="removeResponse(negatives)">Remove Last Response</button>
+  <br>
+  <button class="save-responses" ng-click="saveResponses()">Save Responses!</button>
+</div>

@@ -4,3 +4,6 @@
 [submodule "pytagger"]
 	path = pytagger
 	url = https://github.com/Jasperrr91/pytagger
+[submodule "modules/matcher"]
+	path = modules/matcher
+	url = https://github.com/Jasperrr91/con_dbp_matcher_v1

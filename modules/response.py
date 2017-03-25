@@ -34,18 +34,23 @@ def select_response(responses, emotion):
 def format_response(response, entity):
     return response.replace("<type>", entity)
 
-def generate_response(concept, category, emotion, emoratio):
+def generate_response(concept=False, category=False, emotion=False, emoratio=False):
+    #fail-safe
     question_text = "Hmm, I did not quite get that"
-    emotion = emotion.lower()
 
-    # Treshold for which to go with a positive/negative emotion
-    # TODO: Built in the emotion module
-    emotion_treshold = 0.10
+    if emotion:
+        emotion = emotion.lower()
 
-    if emoratio < emotion_treshold:
+        # Treshold for which to go with a positive/negative emotion
+        # TODO: Built in the emotion module
+        emotion_treshold = 0.10
+
+        if emoratio < emotion_treshold:
+            emotion = "neutral"
+    else:
         emotion = "neutral"
 
-    if concept is None:
+    if not concept:
         question_text = select_nonsense_question(emotion)
         return question_text
 

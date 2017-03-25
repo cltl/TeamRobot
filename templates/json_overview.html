@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Overview</title>
+</head>
+<body>
+<p>Found {{ json_count }} JSON files with responses:</p>
+<ul>
+    {% for file in files %}
+    <li><p><a href="/json/{{ file }}">{{ file }}</a></p></li>
+    {% endfor %}
+</ul>
+</body>
+</html>

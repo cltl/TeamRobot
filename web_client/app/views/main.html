@@ -1,0 +1,77 @@
+<div class="col-md-8 col-md-offset-2">
+  < class="panel panel-default">
+    < class="panel-body">
+      <div class="table-container">
+        <form action="" ng-submit="submit($event)">
+        <table class="table table-filter">
+          <tbody>
+
+          <tr class="response-row">
+            <td colspan="2">
+              <div class="media">
+                <a href="#" class="pull-left">
+                  <img src="images/pepper.png" class="media-photo">
+                </a>
+                <div class="media-body">
+                  <h4 class="title">
+                    Concept Response
+                  </h4>
+                  <p class="summary">{{ response.concept }}</p>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="response-row">
+            <td colspan="2">
+              <div class="media">
+                <a href="#" class="pull-left">
+                  <img src="images/pepper.png" class="media-photo">
+                </a>
+                <div class="media-body">
+                  <h4 class="title">
+                    Emotion Response
+                  </h4>
+                  <p class="summary">{{ response.emotion }}</p>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td colspan="2">
+              <div class="media">
+                <a href="#" class="pull-left">
+                  <img src="images/pepper.png" class="media-photo">
+                </a>
+                <div class="media-body">
+                  <h4 class="title">
+                    Concept + Emotion Response
+                  </h4>
+                  <p class="summary">{{ response.mixed }}</p>
+                </div>
+              </div>
+            </td>
+          </tr>
+
+          <tr class="input-row">
+            <td>
+              <div class="input-box">
+                <input ng-model="inputText" type="text" placeholder="Enter some text" name="sentence" autocomplete="off">
+              </div>
+            </td>
+            <td class="input-button">
+              <input type="submit" />
+            </td>
+          </tr>
+
+
+          </tbody>
+        </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
