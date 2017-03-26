@@ -13,6 +13,11 @@ git submodule init
 git submodule update
 ```
 
+Now that the submodules are initialized, you must go into `pytagger/config` and copy `config.json.example` to `config.json`
+```
+cp pytagger/config/config.json.example pytagger/config/config.json
+```
+
 You may then setup a virtualenv to install the required packages in. This step is optional.
 ```
 virtualenv .
