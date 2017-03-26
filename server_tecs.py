@@ -5,6 +5,7 @@ from modules import emotion as emotion_mod
 from modules import response as response_mod
 from modules import matcher
 import pytagger
+import random
 
 from nltk.corpus import stopwords
 stopword_list = stopwords.words('english')
@@ -201,7 +202,13 @@ def annotate_and_respond(text, detailed=False):
                            tags=['art', 'crime', 'humour', 'live', 'love', 'science', 'technology', 'travel'])
 
     topic = max(topic.keys(), key=(lambda key: topic[key]))
-
+    topic_responses= [] 
+    topic_responses.append("What is " + topic + "?")
+    topic_responses.append("Do you want to tell me more about " + topic + "?")
+    topic_responses.append("What do you think about " + topic + "?")
+    topic_responses.append("How does " + topic + " play a role in your work?")
+    response['topic'] = random.choice(topic_responses)
+	
     if detailed:
         output = {}
         output['responses'] = response
