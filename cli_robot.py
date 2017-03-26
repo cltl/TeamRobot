@@ -4,6 +4,7 @@ import server_tecs as pepper
 
 while(True):
     pepper_text = input('Talk to pepper: ')
+    pepper_text = pepper_text.lower()
     result = pepper.annotate_and_respond(pepper_text, detailed=True)
     print('\n=====')
     print('Concept:\n\t{}\n'
