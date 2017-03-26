@@ -1,5 +1,6 @@
 import json
 import time
+import re
 
 from modules import emotion as emotion_mod
 from modules import response as response_mod
@@ -144,6 +145,8 @@ def annotate_and_respond(text, detailed=False):
     category_type = None
     emotion = None
     topic = None
+
+    text = re.sub('[^a-zA-Z0-9 \n\.]', '', text)
 
     timestamp_log = time.strftime("D%y%m%d_T%H%M%S")
     metadata, meta_dd = load_json(text)
