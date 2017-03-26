@@ -1,18 +1,18 @@
-<div class="col-md-8 col-md-offset-2">
-  < class="panel panel-default">
-    < class="panel-body">
+<div class="col-md-8 col-md-offset-2 vertical-align-parent">
+  <div class="panel panel-default vertical-align">
+    <div class="panel-body">
       <div class="table-container">
         <form action="" ng-submit="submit($event)">
         <table class="table table-filter">
           <tbody>
 
           <tr class="response-row">
-            <td colspan="2">
-              <div class="media">
+            <td colspan="5">
+              <div class="media vertical-align-parent">
                 <a href="#" class="pull-left">
                   <img src="images/pepper.png" class="media-photo">
                 </a>
-                <div class="media-body">
+                <div class="media-body vertical-align">
                   <h4 class="title">
                     Concept Response
                   </h4>
@@ -23,12 +23,12 @@
           </tr>
 
           <tr class="response-row">
-            <td colspan="2">
-              <div class="media">
+            <td colspan="5">
+              <div class="media vertical-align-parent">
                 <a href="#" class="pull-left">
                   <img src="images/pepper.png" class="media-photo">
                 </a>
-                <div class="media-body">
+                <div class="media-body vertical-align">
                   <h4 class="title">
                     Emotion Response
                   </h4>
@@ -38,13 +38,13 @@
             </td>
           </tr>
 
-          <tr>
-            <td colspan="2">
-              <div class="media">
+          <tr class="response-row">
+            <td colspan="5">
+              <div class="media vertical-align-parent">
                 <a href="#" class="pull-left">
                   <img src="images/pepper.png" class="media-photo">
                 </a>
-                <div class="media-body">
+                <div class="media-body vertical-align">
                   <h4 class="title">
                     Concept + Emotion Response
                   </h4>
@@ -55,13 +55,56 @@
           </tr>
 
           <tr class="input-row">
-            <td>
+            <td colspan="4">
               <div class="input-box">
                 <input ng-model="inputText" type="text" placeholder="Enter some text" name="sentence" autocomplete="off">
               </div>
             </td>
             <td class="input-button">
-              <input type="submit" />
+              <input type="submit" value="SEND" />
+            </td>
+          </tr>
+
+          <tr class="status-row">
+            <td>
+              <p>
+                <span class="label">Concept</span>
+              </p>
+              <p>
+                <span class="var">{{ concept }}</span>
+              </p>
+            </td>
+            <td>
+              <p>
+                <span class="label">Concept Type</span>
+              </p>
+              <p>
+                <span class="var">{{ conceptType }}</span>
+              </p>
+            </td>
+            <td>
+              <p>
+                <span class="label">Emotion</span>
+              </p>
+              <p>
+                <span class="var">{{ emotion }}</span>
+              </p>
+            </td>
+            <td>
+              <p>
+                <span class="label">Topic</span>
+              </p>
+              <p>
+                <span class="var">{{ topic }}</span>
+              </p>
+            </td>
+            <td>
+              <p>
+                <span class="label">Connection</span>
+              </p>
+              <p>
+                <span ng-class="{'glyphicon-flash': !connection.true, 'glyphicon-ok-sign': connection.true}" class="glyphicon"></span>
+              </p>
             </td>
           </tr>
 

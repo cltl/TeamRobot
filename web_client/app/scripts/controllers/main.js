@@ -9,15 +9,20 @@
  */
 angular.module('wbApp')
   .controller('MainCtrl', function ($scope, $rootScope, mySocket) {
-    this.username = '';
-    this.usernameSet = false;
+    var connected = false;
 
     $scope.response = {};
-    $scope.response.concept = 'Hold on, we are connecting to the server!'
-    $scope.response.emotion = 'Input some text!'
-    $scope.response.mixed = 'Input some text!'
+    $scope.response.concept = 'Hold on, we are connecting to the server!';
+    $scope.response.emotion = 'Hold on, we are connecting to the server!';
+    $scope.response.mixed = 'Hold on, we are connecting to the server!';
+    $scope.emotion = '...';
+    $scope.topic = '...';
+    $scope.concept = '...';
+    $scope.conceptType = '...';
+
 
     $scope.connection = {};
+    $scope.connection.true = false;
     $scope.connection.status = 'Not Connected';
 
     mySocket.on('connecting', function() {
@@ -26,23 +31,35 @@ angular.module('wbApp')
 
     mySocket.on('connect', function() {
       $scope.connection.status = 'Connected';
-      $scope.response.emotion = 'We have connected!'
-      $scope.response.mixed = 'Input some text!'
+      $scope.connection.true = true;
+
+      if(connected == false) {
+        connected = true;
+        $scope.response.concept = 'We have connected to the server :)';
+        $scope.response.emotion = 'Please enter some text into the input box.';
+        $scope.response.mixed = 'Generating the response might take a few seconds so please be patient!';
+      }
     });
 
     mySocket.on('reconnecting', function() {
       $scope.connection.status = 'Reconnecting';
+      $scope.connection.true = false;
     });
 
     mySocket.on('disconnect', function() {
       $scope.connection.status = 'Disconnect';
+      $scope.connection.true = false;
     });
 
     mySocket.on('response', function (data) {
       console.log(data);
-      $scope.response.concept = data.concept;
-      $scope.response.emotion = data.emotion;
-      $scope.response.mixed = data.mixed;
+      $scope.response.concept = data.responses.concept;
+      $scope.response.emotion = data.responses.emotion;
+      $scope.response.mixed = data.responses.mixed;
+      $scope.emotion = data.emotion;
+      $scope.topic = data.topic;
+      $scope.concept = data.concept;
+      $scope.conceptType = data.concept_type;
     });
 
     $scope.sendMessage = function() {

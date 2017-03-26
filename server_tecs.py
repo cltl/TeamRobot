@@ -4,7 +4,7 @@ import time
 from modules import emotion as emotion_mod
 from modules import response as response_mod
 from modules import matcher
-from pytagger import doTag
+import pytagger
 
 from nltk.corpus import stopwords
 stopword_list = stopwords.words('english')
@@ -26,7 +26,7 @@ def load_json(text):
 
 def emotion_processor(text, meta_dd):
     print('Emotion text: {}'.format(text));
-    tags = doTag(text)
+    tags = pytagger.doTag(text)
     print('Emotion tags: {}'.format(tags));
     meta_dd['emotions']['detected_emotion'] = tags
     return tags
@@ -138,7 +138,7 @@ list_of_json_files = ["match_module/dbpedia_res/light.json", "match_module/dbped
 
 #'---------PIPELINE-RUNNING--------------------------------------------------------------------'
 
-def annotate_and_respond(text):
+def annotate_and_respond(text, detailed=False):
     global conversation_log
     response = {}
 
@@ -199,5 +199,19 @@ def annotate_and_respond(text):
     else:
         response['concept'] = 'No concept has been detected in the input text.'
         response['mixed'] = 'No concept has been detected in the input text.'
+
+    topic = pytagger.doTag(text=text, lexicon='resources/topic_lexicon.tsv',
+                           tags=['art', 'crime', 'humour', 'live', 'love', 'science', 'technology', 'travel'])
+
+    topic = max(topic.keys(), key=(lambda key: topic[key]))
+
+    if detailed:
+        output = {}
+        output['responses'] = response
+        output['emotion'] = emotion
+        output['concept'] = concept
+        output['concept_type'] = category_type
+        output['topic'] = topic
+        return output
 
     return response

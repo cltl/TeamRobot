@@ -27,7 +27,7 @@ def test_connect():
 
 @socketio.on('annotate', namespace='/event')
 def annotate_text(text):
-    response = server.annotate_and_respond(text)
+    response = server.annotate_and_respond(text, detailed=True)
     # Write response to database
     # TODO: add DB wrapper
     # con = None
@@ -75,9 +75,11 @@ def hello():
 
 @application.route('/annotate/<text>', methods=['GET'])
 def annotate_web(text):
+    print('Start manual input')
     response = server.annotate_and_respond(text)
+    # response = jsonify(response)
     socketio.emit('response', response, broadcast=True, namespace="/event")
-    return response
+    return jsonify(response)
 
 @application.route('/responses', methods=['GET', 'POST'])
 def get_responses():
