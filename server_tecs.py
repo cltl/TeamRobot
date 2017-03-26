@@ -25,9 +25,7 @@ def load_json(text):
     return metadata_ep_sc, meta_dd
 
 def emotion_processor(text, meta_dd):
-    print('Emotion text: {}'.format(text));
     tags = pytagger.doTag(text)
-    print('Emotion tags: {}'.format(tags));
     meta_dd['emotions']['detected_emotion'] = tags
     return tags
 
@@ -190,7 +188,6 @@ def annotate_and_respond(text, detailed=False):
         scene.write(json.dumps(conversation_log, sort_keys=True, indent=4))
 
     emotion, emoratio = emotion_mod.emotion_ratio(meta_dd['emotions']['detected_emotion'], len(text.split()))
-    print("Emotions: ", emotion, emoratio)
 
     response['emotion'] = response_mod.generate_response(emotion=emotion, emoratio=emoratio)
     if match:
