@@ -140,6 +140,10 @@ list_of_json_files = ["match_module/dbpedia_res/light.json", "match_module/dbped
 def annotate_and_respond(text, detailed=False):
     global conversation_log
     response = {}
+    concept = None
+    category_type = None
+    emotion = None
+    topic = None
 
     timestamp_log = time.strftime("D%y%m%d_T%H%M%S")
     metadata, meta_dd = load_json(text)
@@ -198,17 +202,21 @@ def annotate_and_respond(text, detailed=False):
         response['concept'] = 'No concept has been detected in the input text.'
         response['mixed'] = 'No concept has been detected in the input text.'
 
-    topic = pytagger.doTag(text=text, lexicon='resources/topic_lexicon.tsv',
+    topics = pytagger.doTag(text=text, lexicon='resources/topic_lexicon.tsv',
                            tags=['art', 'crime', 'humour', 'live', 'love', 'science', 'technology', 'travel'])
 
-    topic = max(topic.keys(), key=(lambda key: topic[key]))
-    topic_responses= [] 
-    topic_responses.append("What is " + topic + "?")
-    topic_responses.append("Do you want to tell me more about " + topic + "?")
-    topic_responses.append("What do you think about " + topic + "?")
-    topic_responses.append("How does " + topic + " play a role in your work?")
-    response['topic'] = random.choice(topic_responses)
-	
+    topic = max(topics.keys(), key=(lambda key: topics[key]))
+    if topics[topic] == 0:
+        topic = None
+
+    if topic:
+        topic_responses = []
+        topic_responses.append("What is " + topic + "?")
+        topic_responses.append("Do you want to tell me more about " + topic + "?")
+        topic_responses.append("What do you think about " + topic + "?")
+        topic_responses.append("How does " + topic + " play a role in your work?")
+        response['topic'] = random.choice(topic_responses)
+
     if detailed:
         output = {}
         output['responses'] = response
